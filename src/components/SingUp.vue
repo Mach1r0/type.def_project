@@ -1,21 +1,21 @@
 <template>
     <img class="logo" src="../assets/logonavbar.png" alt="">
-    <h1>Sign Up</h1>
+    <h1 class="title">Sign Up</h1>
     <div class="register">
         <div>
-            <a>Name</a>
+            <a>Name:</a>
             <input type="text" placeholder="">
         </div>
         <div>
-            <a>Nickname</a>
+            <a>Nickname:</a>
             <input type="text" placeholder="">
         </div>
         <div>
-            <a>gmail</a>
+            <a>Gmail:</a>
             <input type="text" placeholder="">
         </div>
         <div>
-            <a>password</a>
+            <a>Password:</a>
             <input type="text" placeholder="">
         </div>
         <button>Sign Up</button>
@@ -33,6 +33,10 @@ export default{
     width: 100px;   
 }
 
+.register{
+    margin-top: -80px;
+}
+
 .register div {
     display: flex;
     flex-direction: column;
@@ -47,7 +51,7 @@ export default{
     margin-bottom: -70px;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: block; 
     text-align: center;
 }
 
@@ -55,16 +59,26 @@ export default{
     width: 185px;
     border-radius: 5px;
     border: 1px solid;
-    height: 35px;
+    height: 40px;
+    margin-top: 90px;
+    size: 100px;
+    font-size: 20px;
 }
 
-.register a{
-    padding: 35px;
-    margin-left: 350px;
+.register a {
+    padding: 32px; 
+    margin-left: 835px;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 40px;
     display: flow;
     color: black;
     font-size: 20px;
+}
+.title{
+    margin-left: center;
+    margin-top: 30px; 
+    margin-bottom: 50px;
+    font-size: 45px;
+    color: black;
 }
 </style>
