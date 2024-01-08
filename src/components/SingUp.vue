@@ -67,11 +67,11 @@ export default{
 
 .register a {
     padding: 32px; 
-    margin-left: 835px;
+    margin-left: 720px;
     margin-right: auto;
     margin-top: 40px;
     display: flow;
-    color: black;
+    color: white;
     font-size: 20px;
 }
 .title{
@@ -79,6 +79,11 @@ export default{
     margin-top: 30px; 
     margin-bottom: 50px;
     font-size: 45px;
-    color: black;
+    color: white;
+}
+body {
+    background-image: url('../assets/img_of_singup.jpg'); /* Replace with your image path */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>
