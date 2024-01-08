@@ -1,99 +1,109 @@
-'use client'
-import React, { ReactNode } from 'react';
+// main.js or app.js
+import Vue from 'vue';
+import App from './App.vue';
+import './assets/css/main.css'; // Importing the main CSS file
 
-export default function LoginContainer({children}: LoginContainerProps) {
+new Vue({
+  render: h => h(App),
+}).$mount('#app');
+<template>
+  <img class="logo" src="../assets/logonavbar.png" alt="">
+  <h1 class="title">Sign Up</h1>
+  <div class="register">
+      <div>
+          <a>Name:</a>
+          <input type="text" placeholder="">
+      </div>
+      <div>
+          <a>Nickname:</a>
+          <input type="text" placeholder="">
+      </div>
+      <div>
+          <a>Gmail:</a>
+          <input type="text" placeholder="">
+      </div>
+      <div>
+          <a>Password:</a>
+          <input type="text" placeholder="">
+      </div>
+      <button>Sign Up</button>
+  </div>
+</template>
 
 <script>
-export default {
-  name: "SignUp",
-};
+export default{
+  name :'SignUp'
+}
 </script>
 
 <style>
 .logo{
-    width: 100px;
+  width: 100px;   
 }
 
-const Styleregister = {
-    margin-top: -80px;
-    background-color: rgba(169, 169, 169, 0.9); /* 10% transparent */
-    height: 45%;
-    width: 30%;
-    position: absolute;
-    top: 65%;  /* Position from the top half of the screen */
-    left: 50%;  /* Position from the left half of the screen */
-    transform: translate(-50%, -50%);
-    justify-content: center;
-    border-radius: 25px;
-
+.register{
+  margin-top: -80px;
+  background-color: rgba(169, 169, 169, 0.9);
+  height: 50%;
+  width: 30%;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .register div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-const register input = {
-    border: 1px solid;
-    border-radius: 4px;
-    width: 300px;
-    height: 40px;
-    margin-top: -20px;
-    margin-bottom: -70px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    text-align: center;
+.register input{
+  border: 1px solid;
+  border-radius: 4px;
+  width: 300px;
+  height: 40px;
+  margin-top: -20px;
+  margin-bottom: -70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; 
+  text-align: center;
 }
 
-const register button = {
-    width: 185px;
-    border-radius: 5px;
-    border: 1px solid;
-    height: 40px;
-    margin-top: 90px;
-    size: 100px;
-    font-size: 20px;
+.register button{
+  width: 185px;
+  border-radius: 5px;
+  border: 1px solid;
+  height: 40px;
+  margin-top: 90px;
+  size: 100px;
+  font-size: 20px;
 }
 
-const register a = {
-    padding: 32px;
-    margin-left: 381px;
-    margin-right: auto;
-    margin-top: 40px;
-    display: flow;
-    color: white;
-    font-size: 24px;
+.register a {
+  padding: 32px; 
+  margin-left: 720px;
+  margin-right: auto;
+  margin-top: 40px;
+  display: flow;
+  color: white;
+  font-size: 20px;
 }
-const title = {
-    margin-left: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    font-size: 45px;
-    color: white;
+.title{
+  margin-left: center;
+  margin-top: 30px; 
+  margin-bottom: 50px;
+  font-size: 45px;
+  color: white;
 }
-const body = {
-    background-image: url('../assets/img_of_singup.jpg'); /* Replace with your image path */
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  background-image: url('../assets/img_of_singup.jpg'); /* Replace with your image path */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
-
-return (
-    <form style={containerStyle} onSubmit={submitComment}>
-      <h1 style={Titulostyle}>Sign up</h1>
-      <a style={inputStyle}>Email:</a>
-      <input type="text" id="email" style={inputStyle} />
-      <a style={inputStyle}>Password:</a>
-      <input type="password" id="password" style={inputStyle} />
-      <a style={inputStyle}>Confirm Password:</a>
-      <input type="password" id="confirmPassword" style={inputStyle} />
-      <button style={buttonStyle} type="submit" onClick={submitComment}>
-        Register
-      </button>
-      <a>
-        <a>{children}</a>
-      </a>
-    </form>
-  );
-}
