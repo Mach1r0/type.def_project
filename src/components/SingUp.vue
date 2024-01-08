@@ -1,40 +1,50 @@
 <template>
-    <img class="logo" src="../assets/logonavbar.png" alt="">
-    <h1 class="title">Sign Up</h1>
-    <div class="register">
-        <div>
-            <a>Name:</a>
-            <input type="text" placeholder="">
-        </div>
-        <div>
-            <a>Nickname:</a>
-            <input type="text" placeholder="">
-        </div>
-        <div>
-            <a>Gmail:</a>
-            <input type="text" placeholder="">
-        </div>
-        <div>
-            <a>Password:</a>
-            <input type="text" placeholder="">
-        </div>
-        <button>Sign Up</button>
+  <img class="logo" src="../assets/logonavbar.png" alt="" />
+  <h1 class="title">Sign Up</h1>
+  <div class="register">
+    <div>
+      <a>Name:</a>
+      <input type="text" placeholder="" />
     </div>
+    <div>
+      <a>Nickname:</a>
+      <input type="text" placeholder="" />
+    </div>
+    <div>
+      <a>Gmail:</a>
+      <input type="text" placeholder="" />
+    </div>
+    <div>
+      <a>Password:</a>
+      <input type="text" placeholder="" />
+    </div>
+    <button>Sign Up</button>
+  </div>
 </template>
 
 <script>
-export default{
-    name :'SignUp'
-}
+export default {
+  name: "SignUp",
+};
 </script>
 
 <style>
 .logo{
-    width: 100px;   
+    width: 100px;
 }
 
 .register{
     margin-top: -80px;
+    background-color: rgba(169, 169, 169, 0.9); /* 10% transparent */
+    height: 45%;
+    width: 30%;
+    position: absolute;
+    top: 65%;  /* Position from the top half of the screen */
+    left: 50%;  /* Position from the left half of the screen */
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    border-radius: 25px;
+
 }
 
 .register div {
@@ -51,7 +61,7 @@ export default{
     margin-bottom: -70px;
     margin-left: auto;
     margin-right: auto;
-    display: block; 
+    display: block;
     text-align: center;
 }
 
@@ -66,17 +76,17 @@ export default{
 }
 
 .register a {
-    padding: 32px; 
-    margin-left: 720px;
+    padding: 32px;
+    margin-left: 381px;
     margin-right: auto;
     margin-top: 40px;
     display: flow;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
 }
 .title{
     margin-left: center;
-    margin-top: 30px; 
+    margin-top: 30px;
     margin-bottom: 50px;
     font-size: 45px;
     color: white;
