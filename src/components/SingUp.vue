@@ -1,26 +1,7 @@
-<template>
-  <img class="logo" src="../assets/logonavbar.png" alt="" />
-  <h1 class="title">Sign Up</h1>
-  <div class="register">
-    <div>
-      <a>Name:</a>
-      <input type="text" placeholder="" />
-    </div>
-    <div>
-      <a>Nickname:</a>
-      <input type="text" placeholder="" />
-    </div>
-    <div>
-      <a>Gmail:</a>
-      <input type="text" placeholder="" />
-    </div>
-    <div>
-      <a>Password:</a>
-      <input type="text" placeholder="" />
-    </div>
-    <button>Sign Up</button>
-  </div>
-</template>
+'use client'
+import React, { ReactNode } from 'react';
+
+export default function LoginContainer({children}: LoginContainerProps) {
 
 <script>
 export default {
@@ -33,7 +14,7 @@ export default {
     width: 100px;
 }
 
-.register{
+const Styleregister = {
     margin-top: -80px;
     background-color: rgba(169, 169, 169, 0.9); /* 10% transparent */
     height: 45%;
@@ -52,7 +33,7 @@ export default {
     flex-direction: column;
 }
 
-.register input{
+const register input = {
     border: 1px solid;
     border-radius: 4px;
     width: 300px;
@@ -65,7 +46,7 @@ export default {
     text-align: center;
 }
 
-.register button{
+const register button = {
     width: 185px;
     border-radius: 5px;
     border: 1px solid;
@@ -75,7 +56,7 @@ export default {
     font-size: 20px;
 }
 
-.register a {
+const register a = {
     padding: 32px;
     margin-left: 381px;
     margin-right: auto;
@@ -84,16 +65,35 @@ export default {
     color: white;
     font-size: 24px;
 }
-.title{
+const title = {
     margin-left: center;
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 45px;
     color: white;
 }
-body {
+const body = {
     background-image: url('../assets/img_of_singup.jpg'); /* Replace with your image path */
     background-repeat: no-repeat;
     background-size: cover;
 }
 </style>
+
+return (
+    <form style={containerStyle} onSubmit={submitComment}>
+      <h1 style={Titulostyle}>Sign up</h1>
+      <a style={inputStyle}>Email:</a>
+      <input type="text" id="email" style={inputStyle} />
+      <a style={inputStyle}>Password:</a>
+      <input type="password" id="password" style={inputStyle} />
+      <a style={inputStyle}>Confirm Password:</a>
+      <input type="password" id="confirmPassword" style={inputStyle} />
+      <button style={buttonStyle} type="submit" onClick={submitComment}>
+        Register
+      </button>
+      <a>
+        <a>{children}</a>
+      </a>
+    </form>
+  );
+}
