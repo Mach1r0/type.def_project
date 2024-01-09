@@ -1,11 +1,4 @@
-// main.js or app.js
-import Vue from 'vue';
-import App from './App.vue';
-import './assets/css/main.css'; // Importing the main CSS file
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app');
 <template>
   <img class="logo" src="../assets/logonavbar.png" alt="">
   <h1 class="title">Sign Up</h1>
@@ -43,19 +36,18 @@ export default{
 
 .register{
   margin-top: -80px;
-  background-color: rgba(169, 169, 169, 0.9);
-  height: 50%;
-  width: 30%;
+  background-color: rgba(169, 169, 169, 0.6);
+  height: 58%;
+  width: 25%;
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center;}
 
 .register div {
   display: flex;
@@ -69,7 +61,7 @@ export default{
   height: 40px;
   margin-top: -20px;
   margin-bottom: -70px;
-  margin-left: auto;
+  margin-left: -80px;
   margin-right: auto;
   display: block; 
   text-align: center;
@@ -86,14 +78,14 @@ export default{
 }
 
 .register a {
-  padding: 32px; 
-  margin-left: 720px;
+  padding: 32px;
+  margin-left: -100px;
   margin-right: auto;
   margin-top: 40px;
   display: flow;
-  color: white;
+  color: black;
   font-size: 20px;
-}
+  }
 .title{
   margin-left: center;
   margin-top: 30px; 
