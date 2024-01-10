@@ -1,9 +1,16 @@
 <template>
-<h1>Home</h1>  
+    home
 </template>
 
 <script>
 export default {
-    name: 'HomePage', // Renamed from 'Home' to 'HomePage'
-}
+    name: 'HomePage', 
+    mounted(){
+  let user = localStorage.getItem('user-info')
+  console.log('User:', user); // Log the user to the console
+  if(!user)
+  {
+    this.$router.push({name:'SignUp'}) // Removed the space after 'SignUp'
+  }
+}}
 </script>

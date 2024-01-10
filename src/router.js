@@ -1,11 +1,12 @@
-import Home from "./components/Home.vue";
+import HomePage from "./components/Home.vue";
 import SingUp from "./components/SingUp.vue";
 import { createWebHistory, createRouter } from 'vue-router';
+import Login from "./components/Login.vue";
 
 const routes = [
   {
-    name: "Home",
-    component: Home,
+    name: "HomePage",
+    component: HomePage,
     path: "/",
   },
   {
@@ -13,6 +14,11 @@ const routes = [
     component: SingUp,
     path: "/sign-up",
   },
+  {
+    name: "Login",
+    component: Login,
+    path: "/login",
+  }
 ];
 
 
