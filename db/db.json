@@ -1,8 +1,19 @@
 {
- "users": [
+  "users": [
     {
-        "id": 1, "name": "John", "age": 20, "email": "daniel@dksaldças"
+      "id": "c870"
+    },
+    {
+      "id": "3921",
+      "email": "aaa",
+      "passowrd": "aaa",
+      "name": "aaa"
+    },
+    {
+      "id": "516a",
+      "email": "bonfim",
+      "passowrd": "bonfim",
+      "name": "bonfim "
     }
- ]
+  ]
 }
-//parei no vídeo 5 aos 5:50
