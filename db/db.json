@@ -1,5 +1,8 @@
 {
-    "user":[
-        {"name":"Daniel","email":"daniel@gmail.com","password":"1234"}
-    ]
+ "users": [
+    {
+        "id": 1, "name": "John", "age": 20, "email": "daniel@dksaldças"
+    }
+ ]
 }
+//parei no vídeo 5 aos 5:50
