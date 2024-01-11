@@ -1,4 +1,5 @@
 <template>
+  <div class="background">
   <div class="register-form">
     <h2>Register</h2>
     <input type="text" v-model="name" placeholder="Username" />
@@ -9,6 +10,7 @@
     <router-link to="/login">Login</router-link>
     </p>
   </div>
+</div>
 </template>
 ''
 <script>
@@ -50,9 +52,13 @@ export default {
 </script>
 
 <style>
-body signUp {
-  background-image: url('../assets/img_of_singup.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+.background {  
+    display: flex;
+    align-items: center;
+    background-image: url('../assets/img_of_singup.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
 }
 </style>

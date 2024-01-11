@@ -13,5 +13,12 @@
 <script>
 export default {
   name: "LoginScreen",
+  data()
+  {
+    return{
+      email:'',
+      password: ''
+    }
+  }
 };
 </script>

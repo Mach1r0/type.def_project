@@ -9,14 +9,18 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
 .register-form, .LoginScreen{
   display: flex;
   flex-direction: column;
@@ -25,6 +29,7 @@ export default {
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
+  margin-bottom: 150px ;
 }
 
 .register-form h2, .LoginScreen h2 {
@@ -47,4 +52,5 @@ export default {
   color: #fff;
   cursor: pointer;
 }
+
 </style>
