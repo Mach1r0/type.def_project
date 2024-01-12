@@ -1,23 +1,28 @@
 <template>
-<div class="LoginScreen">
-    <h2>Login</h2>
-  <input type="text" v-model="name" placeholder="Username or email" />
-  <input type="password" v-model="password" placeholder="Password" />
-  <button>Login</button>
-  <p>
-    <router-link to="/sign-up">Sign up</router-link>
-  </p>
-</div>
+  <div>
+    <input v-model="email" type="email" placeholder="Email">
+    <input v-model="password" type="password" placeholder="Password">
+    <button @click="login">Login</button>
+  </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: "LoginScreen",
-  data()
-  {
-    return{
-      email:'',
-      password: ''
+  name: 'LoginScreen',
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods:{
+    async login(){
+      let result = await axios.get(
+        `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+      )
+      console.warn(result);
     }
   }
 };
