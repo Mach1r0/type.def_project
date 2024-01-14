@@ -1,16 +1,22 @@
 <template>
-    home
+    <navbar />
+home
 </template>
 
 <script>
+import navbar from "./navbar.vue";
 export default {
-    name: 'HomePage', 
-    mounted(){
-  let user = localStorage.getItem('user-info')
-  console.log('User:', user); // Log the user to the console
-  if(!user)
+  name: "HomePage",
+  components: {
+    navbar
+  },
+  mounted() 
   {
-    this.$router.push({name:'SignUp'}) // Removed the space after 'SignUp'
-  }
-}}
+    let user = localStorage.getItem("user-info");
+    console.log("User:", user); // Log the user to the console
+    if (!user) {
+      this.$router.push({ name: "SignUp" }); // Removed the space after 'SignUp'
+    }
+  },
+};
 </script>
