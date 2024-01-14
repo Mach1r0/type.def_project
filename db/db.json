@@ -1,79 +1,19 @@
 {
   "users": [
     {
-      "id": "c870"
-    },
-    {
-      "id": "3921",
-      "email": "aaa",
-      "passowrd": "aaa",
-      "name": "aaa"
-    },
-    {
       "id": "516a",
       "email": "bonfim",
-      "passowrd": "bonfim",
+      "password": "bonfim",
       "name": "bonfim "
     },
     {
-      "id": "3b88"
+      "id": "1b8c"
     },
     {
-      "id": "8aaa"
-    },
-    {
-      "id": "ce4a",
-      "email": "123@gmail.com",
-      "password": "123456",
+      "id": "a413",
+      "email": "aaa",
+      "password": "aaa",
       "name": "aaa"
-    },
-    {
-      "id": "4507",
-      "email": "dasdjksaldsakl",
-      "passowrd": "123456",
-      "name": "dsadasdsa"
-    },
-    {
-      "id": "9eba",
-      "email": "",
-      "passowrd": "",
-      "name": ""
-    },
-    {
-      "id": "606d",
-      "email": "aa",
-      "passowrd": "aaa",
-      "name": "aa"
-    },
-    {
-      "id": "3ba7",
-      "email": "aa",
-      "passowrd": "aaa",
-      "name": "aaa"
-    },
-    {
-      "id": "0d3f",
-      "email": "aa",
-      "passowrd": "aaa",
-      "name": "\\aaa"
-    },
-    {
-      "id": "b675",
-      "email": "aa",
-      "passowrd": "aaa",
-      "name": "aaa"
-    },
-    {
-      "id": "c727",
-      "email": "batman",
-      "passowrd": "batmna",
-      "name": "the boy"
-    },
-    {
-      "id": "982f",
-      "email": "aa",
-      "passowrd": "aaa",
-      "name": "aa"
     }
   ]
 }

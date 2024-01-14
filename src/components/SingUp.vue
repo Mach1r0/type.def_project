@@ -30,7 +30,7 @@ export default {
     async signUp(){
       let result = await axios.post("http://localhost:3000/users",{
         email:this.email,
-        passowrd:this.password,
+        password:this.password,
         name:this.name
       });
 
@@ -59,6 +59,5 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-
 }
 </style>
