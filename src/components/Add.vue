@@ -1,24 +1,18 @@
 <template>
     <navbar />
-    <h1>oi tudo bem, {{name}}</h1>
+home
 </template>
 
 <script>
 import navbar from "./navbar.vue";
 export default {
   name: "HomePage",
-  data(){
-      return {
-        name: '',
-      }
-  },
   components: {
     navbar
   },
   mounted() 
   {
     let user = localStorage.getItem("user-info");
-    this.name = JSON.parse(user).name; 
     console.log("User:", user); // Log the user to the console
     if (!user) {
       this.$router.push({ name: "SignUp" }); // Removed the space after 'SignUp'
