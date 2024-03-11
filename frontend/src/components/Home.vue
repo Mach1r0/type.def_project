@@ -1,6 +1,10 @@
 <template>
+<<<<<<< HEAD:src/components/Home.vue
     <navbar />
     <h1>oi tudo bem, {{name}}</h1>
+=======
+    <h1>oi</h1>
+>>>>>>> 78180c1 (Creating backend and style the navbar):frontend/src/components/Home.vue
 </template>
 
 <script>
