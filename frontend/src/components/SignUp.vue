@@ -35,12 +35,15 @@ export default {
     gap: 1rem;
     padding: 10px;
 }
+
 .register input {
     background-color: white;
 }
+
 .register button {
     background-color: rgb(0, 0, 0);
 }
+
 .register input, button{
     width: 80%;
     border-radius: 7px;
@@ -49,6 +52,7 @@ export default {
     outline: none;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   
 }
+
 .register input::placeholder {
     color: black; /* Change to the desired color */
 }
