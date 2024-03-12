@@ -27,22 +27,15 @@ export default {
     margin: 10px;
     height: 30px;
     border-radius: 3px;
-    ]
+  }
 
-
-
-
-    
-
-
-}
 .container-login {
   display: block;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 400px;
+  max-width: 200px;
   padding: 0 0 0 40px;
   background-color: red;
 }
