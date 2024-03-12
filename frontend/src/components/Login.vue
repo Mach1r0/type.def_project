@@ -1,4 +1,5 @@
 <template>
+  <router-link to="/home" class="title-page">TYPE.DEF</router-link>
   <div class="container">
   <div class="title-style">
     <h1>LOGIN</h1>
