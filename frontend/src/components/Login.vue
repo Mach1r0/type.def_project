@@ -89,7 +89,7 @@ export default {
 }
 
 .title-style h1 {
-  font-family: 'inter', sans-serif;
+  font-family: "inter", sans-serif;
   font-weight: bolder;
   color: black;
   font-size: 30px;
@@ -98,7 +98,7 @@ export default {
 }
 
 .btnlogin {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     width: 40%;
     justify-content: center;
     max-width: 129px;
