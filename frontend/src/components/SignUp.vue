@@ -1,5 +1,6 @@
 <template>
-    <router-link to="/home" class="title-page">TYPE.DEF</router-link>
+  <img src="../assets/logo_image.png" alt="Description of image" class="logo-style"/>
+ <router-link to="/home" class="title-page">TYPE.DEF</router-link>
  <div class="container">
   <h1 class="title">REGISTER</h1>
   <div class="register">
@@ -26,6 +27,10 @@ export default {
 </style>
 
 <style>
+
+.logo-style{
+    max-width: 200px;
+}
 
 .title-page{
     font-style: none;

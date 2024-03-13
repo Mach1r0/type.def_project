@@ -17,7 +17,7 @@
       <router-link to="/gender"> Gender </router-link>
       <router-link to="/artists"> Artists </router-link>
       <router-link to="/albums"> Albums </router-link>
-      <router-link to="/new-releases"> New Releases </router-link>
+      <router-link to="/releases"> New Releases </router-link>
       <router-link to="/best-ofs"> Best of's </router-link>
       <router-link to="/SingUp "> Profile </router-link>
     </div>
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: "NavigationBar",
+  name: "AppNavBar",
   data() {
     return {
       searchQuery: '',

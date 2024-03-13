@@ -1,20 +1,29 @@
 <template>
+  <img
+    src="../assets/logo_image.png"
+    alt="Description of image"
+    class="logo-style"
+  />
   <router-link to="/home" class="title-page">TYPE.DEF</router-link>
   <div class="container">
-  <div class="title-style">
-    <h1>LOGIN</h1>
+    <div class="title-style">
+      <h1>LOGIN</h1>
+    </div>
+    <div class="container-login">
+      <input type="text" placeholder="Nickname or email" />
+      <input type="text" placeholder="password" />
+      <router-link to="/forgot-password" class="text-forgot"
+        >Forgot your password?</router-link
+      >
+    </div>
+    <button class="btnlogin">LOGIN</button>
+    <div class="text-under">
+      <p style="color: black">Don't have account?</p>
+      <router-link to="/sign-up" class="register-link"
+        ><u>Register now!</u></router-link
+      >
+    </div>
   </div>
-  <div class="container-login">
-    <input type="text" placeholder="Nickname or email" />
-    <input type="text" placeholder="password" />
-    <router-link to="/forgot-password" class="text-forgot">Forgot your password?</router-link>
-  </div>
-  <button class="btnlogin">LOGIN</button>
-  <div class="text-under">
-    <p style=color:black>Don't have account?</p>
-    <router-link to="/sign-up" class="register-link"><u>Register now!</u></router-link>
-  </div>
-</div>
 </template>
 
 <script>
@@ -24,18 +33,21 @@ export default {
 </script>
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container{
+.logo-style {
+  max-width: 300px;
+}
+
+.container {
   margin-top: 200px;
 }
 
-.text-forgot{
+.text-forgot {
   justify-content: end;
   text-decoration: none;
   color: grey;
@@ -44,7 +56,7 @@ export default {
   width: 420px;
 }
 
-.text-under{
+.text-under {
   display: flex;
   gap: 0.5rem;
   max-width: 420px;
@@ -62,16 +74,16 @@ export default {
   cursor: pointer; /* Change cursor on hover for better user experience */
 }
 
-.container-login input{
+.container-login input {
   height: 45px;
   width: 420px;
   border-radius: 15px;
   outline: none;
   border: none;
   padding: 5px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);   
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
-  
+
 .container-login {
   margin: 0 auto;
   width: 40%;
@@ -98,15 +110,15 @@ export default {
 }
 
 .btnlogin {
-    font-family: "Courier New", Courier, monospace;
-    width: 40%;
-    justify-content: center;
-    max-width: 129px;
-    height: 50px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+  width: 40%;
+  justify-content: center;
+  max-width: 129px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
 }
 </style>

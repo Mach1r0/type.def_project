@@ -1,15 +1,21 @@
 <template>
    <footer> 
       <p> {{ footerText }} </p>
+      <router-link to="/aboutus"> {{ aboutus }}</router-link >
+      <router-link to="/privacy"> {{ Privacy }}</router-link >
+      <router-link to="/instagram"> {{ Instagram }}</router-link >
    </footer>
 </template>
 
 <script>
-export default{
+export default {
    name: 'AppFooter',
    data() {
       return{
-         footerText: "Copyright 2003"
+         footerText: "Copyright 2003",
+         aboutus: "About Us",
+         Privacy: "Privacy",
+         Instagram: "instagram",
       }
    }
 }
