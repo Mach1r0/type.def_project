@@ -5,7 +5,9 @@
         <img src="aaa" alt="Logo">
       </div>
       <h1 class="title-style">TYPE.DEF</h1>
-      <input class="search-style" type="text" placeholder="Search for artist, album or track" />
+      <form @submit.prevent="handleSearch">
+        <input class="search-style" type="text" v-model="searchQuery" placeholder="Search for artist, album or track" />
+      </form>
       <div class="style-user">
         <router-link to="/login">Login</router-link>
         <router-link to="/sign-up">Register</router-link>
@@ -25,8 +27,17 @@
 <script>
 export default {
   name: "NavigationBar",
+  data() {
+    return {
+      searchQuery: '',
+    };
+  },
+  methods: {
+    handleSearch() {
+      console.log(this.searchQuery);
+    },
+  },
 };
-
 </script>
 
 <style>

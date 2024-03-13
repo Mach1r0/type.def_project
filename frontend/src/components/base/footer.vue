@@ -6,20 +6,18 @@
 
 <script>
 export default{
+   name: 'AppFooter',
    data() {
       return{
-         footerText: 'Copyright 2003'
+         footerText: "Copyright 2003"
       }
    }
 }
-
 </script>
 
 <style scoped>
    footer{
       background: lightcyan;
       padding: 10px;
-
    }
 </style>
-    

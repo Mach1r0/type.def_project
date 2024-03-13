@@ -2,16 +2,19 @@
   <div id="app">
     <NavigationBar />
     <router-view />
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import NavigationBar from './components/base/navbar.vue';
+import AppFooter from './components/base/footer.vue';
 
 export default {
   name: 'App',
   components: {
-    NavigationBar
+    NavigationBar,
+    AppFooter
   }
 }
 </script>
