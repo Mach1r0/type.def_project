@@ -8,7 +8,7 @@
       <input class="search-style" type="text" placeholder="Search for artist, album or track" />
       <div class="style-user">
         <router-link to="/login">Login</router-link>
-        <router-link to="/register">Register</router-link>
+        <router-link to="/sign-up">Register</router-link>
       </div>
     </div>
     <div class="navbar-links">
@@ -17,7 +17,7 @@
       <router-link to="/albums"> Albums </router-link>
       <router-link to="/new-releases"> New Releases </router-link>
       <router-link to="/best-ofs"> Best of's </router-link>
-      <router-link to="/profile"> Profile </router-link>
+      <router-link to="/SingUp "> Profile </router-link>
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@
 export default {
   name: "NavigationBar",
 };
+
 </script>
 
 <style>
@@ -48,9 +49,21 @@ export default {
   color: black;
 }
 
-.style-user a{
-   gap: 1rem;
-  
+.style-user {
+  gap: 4rem;
+  display: flex;
+  justify-content: end;
+  background-color: grey;
+  width: 100%;
+  margin-right: 30px;
+}
+
+.style-user a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .container-topo {
@@ -63,7 +76,7 @@ export default {
 .search-style {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   height: 51px;
-  width: 250px;
+  width: 420px;
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
