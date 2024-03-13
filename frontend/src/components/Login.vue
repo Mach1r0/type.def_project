@@ -110,7 +110,7 @@ export default {
 }
 
 .btnlogin {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "inter", sans-serif;
   width: 40%;
   justify-content: center;
   max-width: 129px;

@@ -1,16 +1,16 @@
 <template>
     <h1 class="name-page"> Artists </h1>
-        <ul>
-            <li v-for="(cakes, index) in cakes" :key="index">
-            {{ cakes.picture }} <br> 
-            {{ cakes.name }} <br>
-            {{ cakes.description }}
-            </li>
-        </ul>
+    <ul>
+        <li v-for="(cakes, index) in cakes" :key="index">
+            <p v-show="cakes.picture">{{ cakes.picture }}</p><br>
+            <p v-show="cakes.name">{{ cakes.name }}</p><br>
+            <p v-show="cakes.description">{{ cakes.description }}</p>
+        </li>
+    </ul>
 
-    </template>
+</template>
 
-    <script>
+<script>
 export default {
     name: 'AppArtist',
     data() {
@@ -28,21 +28,20 @@ export default {
 </script>
 
 <style>
-    ul{
-        display: flex;
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 10px;
-        box-sizing: border-box;
-    }
+ul {
+    display: flex;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-    li{
-        list-style: none;
-        padding: 20px;
-        margin: 10px;
-        text-align: center;
-        border: 1px solid #229966;
-        flex-grow: 1;
-    }
-
+li {
+    list-style: none;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #229966;
+    flex-grow: 1;
+}
 </style>

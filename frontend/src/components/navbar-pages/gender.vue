@@ -2,9 +2,9 @@
     <h1 class="name-page"> Gender </h1>
         <ul>
             <li v-for="(cakes, index) in cakes" :key="index">
-            {{ cakes.picture }} <br> 
-            {{ cakes.name }} <br>
-            {{ cakes.description }}
+            <p v-show="cakes.picture">{{ cakes.picture }}</p><br> 
+            <p v-show="cakes.name">{{ cakes.name }}</p><br>
+            <p v-show="cakes.description">{{ cakes.description }}</p>
             </li>
         </ul>
 

@@ -1,12 +1,12 @@
 <template>
     <h1 class="name-page">NEW RELEASES</h1>
-        <ul>
-            <li v-for="(cakes, index) in cakes" :key="index">
-            {{ cakes.picture }} <br>
-            {{ cakes.name }} <br>
-            {{ cakes.description }}
-            </li>
-        </ul>
+    <ul>
+        <li v-for="(cakes, index) in cakes" :key="index">
+        <p v-show="cakes.picture">{{ cakes.picture }}</p><br> 
+        <p v-show="cakes.name">{{ cakes.name }}</p><br>
+        <p v-show="cakes.description">{{ cakes.description }}</p>
+        </li>
+    </ul>
 
     </template>
 
