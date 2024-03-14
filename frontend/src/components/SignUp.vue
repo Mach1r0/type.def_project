@@ -13,13 +13,18 @@
         <p>Alredy have an account?</p>
         <router-link to="/login" class="txt-login">Login</router-link>
     </div>
+    <AppFooter class="signup-footer">
+    </AppFooter>
 </div>
   </div>
 </template>
 
 <script>
+import AppFooter from './base/footer.vue'
 export default {
   name: "SignUp",
+  components:
+  AppFooter
 };
 </script>
 <style>
@@ -27,9 +32,14 @@ export default {
 </style>
 
 <style>
+.signup-footer{
+      background: lightcyan;
+      padding: 10px;
+      margin-top: 400px;
+}
 
 .logo-style{
-    max-width: 200px;
+    max-width: 100px;
 }
 
 .title-page{
@@ -74,14 +84,15 @@ export default {
 }
 .txt-login{
     color: black;
-}
-
-.register input {
+  }
+  
+  .register input {
     background-color: white;
-}
-
-.register button {
+  }
+  
+  .register button {
     background-color: rgb(0, 0, 0);
+    cursor: pointer
 }
 
 .register input, button {

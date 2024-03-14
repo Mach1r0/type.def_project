@@ -50,7 +50,7 @@ export default {
 .navbar-links {
   display: flex;
   gap: 4rem;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: 120px;
 }
 

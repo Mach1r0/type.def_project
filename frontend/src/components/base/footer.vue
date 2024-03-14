@@ -25,5 +25,6 @@ export default {
    footer{
       background: lightcyan;
       padding: 10px;
+      margin-top: 200px;
    }
 </style>

@@ -1,10 +1,12 @@
 <template>
+  <div class="container-header">
   <img
     src="../assets/logo_image.png"
     alt="Description of image"
     class="logo-style"
   />
   <router-link to="/home" class="title-page">TYPE.DEF</router-link>
+  </div>
   <div class="container">
     <div class="title-style">
       <h1>LOGIN</h1>
@@ -39,8 +41,23 @@ export default {
   box-sizing: border-box;
 }
 
+.container-header{
+  background-color: rgb(192, 192, 192);
+  margin-top: -60px;
+  max-width: 2000px;
+  height: 130px;
+}
+
+.title-page{
+  margin-top: -90px;
+}
 .logo-style {
-  max-width: 300px;
+  max-width: 150px;
+  display: flex;
+  width: 100%;
+  margin-left: 170px;
+  margin-top: -50px;  
+  justify-content: flex-start;
 }
 
 .container {
