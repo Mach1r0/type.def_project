@@ -1,38 +1,76 @@
 <template>
   <div class="container-header">
-  <img
-    src="../assets/logo_image.png"
-    alt="Description of image"
-    class="logo-style"
-  />
-  <router-link to="/home" class="title-page">TYPE.DEF</router-link>
+    <img
+      src="../assets/logo.png"
+      alt="Description of image"
+      class="logo-style"
+    />
+    <router-link to="/home" class="title-page">TYPE.DEF</router-link>
   </div>
   <div class="container">
-    <div class="title-style">
-      <h1>LOGIN</h1>
-    </div>
-    <div class="container-login">
-      <input type="text" placeholder="Nickname or email" />
-      <input type="text" placeholder="password" />
-      <router-link to="/forgot-password" class="text-forgot"
-        >Forgot your password?</router-link
-      >
-    </div>
-    <button class="btnlogin">LOGIN</button>
+    <form @submit.prevent="submit">
+      <div class="title-style">
+        <h1>LOGIN</h1>
+      </div>
+
+      <div class="container-login">
+        <input v-model="data.email" type="text" placeholder="Email" required />
+        <input v-model="data.password" type="password" placeholder="Password" required />
+        <router-link to="/forgot-password" class="text-forgot"> Forgot your password? </router-link>
+      </div>
+
+      <button class="btnlogin" type="submit"> LOGIN </button>
+    </form>
+
     <div class="text-under">
       <p style="color: black">Don't have account?</p>
-      <router-link to="/sign-up" class="register-link"
-        ><u>Register now!</u></router-link
-      >
+      <router-link to="/sign-up" class="register-link"> <u> Register now! </u> </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
 export default {
-  name: "LoginPage",
+  name: 'LoginPage',
+  setup() {
+    const data = reactive({
+      email: '',
+      password: ''
+    });
+    const router = useRouter();
+
+    const submit = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/login/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        await response.json();
+        router.push('/');
+      } catch (error) {
+        console.error('There was a problem with the fetch operation: ', error.message);
+      }
+    };
+
+    return {
+      data,
+      submit
+    };
+  }
 };
 </script>
+
+
 
 <style>
 * {

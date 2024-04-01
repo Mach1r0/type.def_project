@@ -1,32 +1,77 @@
 <template>
-    <img src="../assets/logo_image.png" alt="Description of image" class="logo-style"/>
-   <router-link to="/home" class="title-page">TYPE.DEF</router-link>
-   <div class="container">
-    <h1 class="title">REGISTER</h1>
-    <div class="register">
-          <input type="text" placeholder="Email adress" />
-          <input type="text" placeholder="Username" />
-          <input type="text" placeholder="Password" />
-          <input type="text" placeholder="Confirm Password" />
-          <button>REGISTER</button>
-       <div class="text-under">
-          <p>Alredy have an account?</p>
-          <router-link to="/login" class="txt-login">Login</router-link>
-      </div>
-      <AppFooter class="signup-footer">
-      </AppFooter>
-  </div>
-    </div>
-  </template>
+  <div>
+    <img src="../assets/logo.png" alt="Description of image" class="logo-style"/>
+    <router-link to="/home" class="title-page">TYPE.DEF</router-link>
   
-  <script>
-  import AppFooter from './base/footer.vue'
-  export default {
-    name: "SignUp",
-    components:
+    <div class="container">
+      <h1 class="title">REGISTER</h1>
+  
+      <div class="register">
+        <input v-model="data.email" type="email" placeholder="Email address" />
+        <input v-model="data.name" type="text" placeholder="Username" />
+        <input v-model="data.password" type="password" placeholder="Password" />
+        <input type="password" placeholder="Confirm Password" />
+  
+        <button @click="submit">REGISTER</button>
+  
+        <div class="text-under">
+          <p>Already have an account?</p>
+          <router-link to="/login" class="txt-login">Login</router-link>
+        </div>
+      </div>
+    </div>
+  
+    <app-footer class="signup-footer"/>
+  </div>
+</template>
+  
+<script lang="ts">
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import AppFooter from '../components/base/footer.vue';
+
+export default {
+  name: "SignUp",
+  components: {
     AppFooter
-  };
-  </script>
+  },
+  setup() {
+    const data = reactive({
+      name: '', 
+      email: '',
+      password: ''
+    });
+
+    const router = useRouter();
+
+    const submit = async () => {
+     
+      try {
+        const response = await fetch('http://localhost:8000/api/register/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        await router.push('/login');
+      } catch (error) {
+        console.error('There was a problem with the fetch operation: ', error.message);
+      }
+    };
+
+    return {
+      data,
+      submit
+    };
+  }
+};
+
+</script>
+
   <style>
   @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
   </style>
@@ -78,6 +123,7 @@
     margin: 0 auto;
     align-items: center; 
   }
+
   .text-under{
       text-decoration: none;
       color: black;
