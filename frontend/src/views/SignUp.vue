@@ -59,7 +59,7 @@ export default {
 
         await router.push('/login');
       } catch (error) {
-        console.error('There was a problem with the fetch operation: ', error.message);
+        console.error('There was a problem with the fetch operation: ');
       }
     };
 

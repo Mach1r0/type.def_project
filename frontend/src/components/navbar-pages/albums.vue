@@ -1,27 +1,37 @@
 <template>
-    <h1 class="name-page"> Albums </h1>
-    <ul>
-        <li v-for="(cakes, index) in cakes" :key="index">
-        <p v-show="cakes.picture">{{ cakes.picture }}</p><br> 
-        <p v-show="cakes.name">{{ cakes.name }}</p><br>
-        <p v-show="cakes.description">{{ cakes.description }}</p>
-        </li>
-    </ul>
-
-    </template>
+    <AppNavBar></AppNavBar>
+    <div>
+        <ul>
+            <li v-for="(albums, index) in albums" :key="index">
+                <img :src="albums.picture" :alt="albums.name" />
+                <h3>{{ albums.name }}</h3>
+                <p>{{ albums.description }}</p>
+            </li>
+        </ul>
+    </div>
+</template>
 
 <script>
+import axios from 'axios'
+import AppNavBar from '@/components/base/navbar.vue'
+
 export default {
     name: 'AppAlbums',
+    components: {
+        AppNavBar,
+    },
     data() {
         return {
-            cakes: [
-                { picture: 'pic1', name: 'Text1', description: 'Description 1' },
-                { picture: 'pic2', name: 'Text2', description: 'Description 2' },
-                { picture: 'pic3', name: 'Text3', description: 'Description 3' },
-                { picture: 'pic4', name: 'Text4', description: 'Description 4' },
-                { picture: 'pic5', name: 'Text5', description: 'Description 5' },
-            ]
+            albums: []
+        }
+    },
+    async created() {
+        try {
+            const response = await axios.get('http://localhost:8000/albums')
+            console.log(response.data)  // Add this line
+            this.albums = response.data
+        } catch (error) {
+            console.error('Failed to fetch albums:', error)
         }
     }
 }
