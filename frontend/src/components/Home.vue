@@ -4,10 +4,10 @@
 </template>
 
 <script>
-
   let avgReviews = {}
 
   import AppNavBar from '@/components/base/navbar.vue'
+  
   export default {
     name: 'HomePage',
     components: {

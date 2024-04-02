@@ -5,6 +5,7 @@
             <li v-for="(albums, index) in albums" :key="index">
                 <img :src="albums.picture" :alt="albums.name" />
                 <h3>{{ albums.name }}</h3>
+                <h3> {{ albums.artist.join(', ') }}</h3> <!-- Change here -->
                 <p>{{ albums.description }}</p>
             </li>
         </ul>
