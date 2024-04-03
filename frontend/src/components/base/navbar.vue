@@ -15,7 +15,7 @@
       </div>
       <div class="navbar-links">
         <router-link to="/gender"> Gender </router-link>
-        <router-link to="/artists"> Artists </router-link>
+        <router-link to="/artist"> Artists </router-link>
         <router-link to="/albums"> Albums </router-link>
         <router-link to="/releases"> New Releases </router-link>
         <router-link to="/best-ofs"> Best of's </router-link>

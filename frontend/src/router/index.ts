@@ -3,10 +3,10 @@ import HomePage from '../components/Home.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import ReleasesPage from '../components/navbar-pages/releases.vue'
-import AppAlbums from '../components/navbar-pages/albums.vue'
+import AppAlbums from '@/components/albums/index.vue'
 import AppBestof from '../components/navbar-pages/best_of_.vue'
-import AppArtist from '../components/navbar-pages/artits.vue'
-import AppGender from '../components/navbar-pages/gender.vue'
+import AppArtist from '../components/artists/index.vue'
+import AppGender from '../components/gender/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {path: '/', component: HomePage},

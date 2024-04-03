@@ -3,9 +3,11 @@
     <div>
         <ul>
             <li v-for="(albums, index) in albums" :key="index">
-                <img :src="albums.picture" :alt="albums.name" />
-                <h3>{{ albums.name }}</h3>
-                <h3> {{ albums.artist.join(', ') }}</h3> <!-- Change here -->
+                <img :src="albums.image" :alt="albums.name" />
+                <router-link :to="`/albums/${albums.slug}`"> <!-- Add this line -->
+                    <h3>{{ albums.name }}</h3>
+                </router-link>
+                <h3> {{ albums.artist.join(', ') }}</h3>
                 <p>{{ albums.description }}</p>
             </li>
         </ul>
