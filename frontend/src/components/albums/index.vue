@@ -7,7 +7,6 @@
                 <router-link :to="`/albums/${albums.slug}`"> <!-- Add this line -->
                     <h3>{{ albums.name }}</h3>
                 </router-link>
-                <h3> {{ albums.artist.join(', ') }}</h3>
                 <p>{{ albums.description }}</p>
             </li>
         </ul>

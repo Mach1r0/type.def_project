@@ -1,13 +1,26 @@
 <template>
     <AppNavBar/>
+
     <h1 class="name-page"> Gender </h1>
     <h3 class="name-page"> All Gender </h3>
-    </template>
+    
+    <div v-for="(genders, index) in genders" :key="index">
+        <router-link :to="`/genders/${genders.slug}`"> 
+            {{ genders.name }}
+        </router-link>
+        <div class="img">
+            <img :src="genders.image" :alt="genders.name">
+        </div>
+        <p>
+            {{ genders.description }}
+        </p>
+    </div>
 
-    <script>
-import axios from axios
+</template>
+
+<script>
+import axios from 'axios'
 import AppNavBar from '@/components/base/navbar.vue'
-const { data }  = await axios.get()
 
 export default {
     name: 'AppGender',
@@ -16,7 +29,21 @@ export default {
     },
     data() {
         return {
-            
+            genders: []
+        }
+    },
+    computed: {
+        uniqueGenders() {
+            const genders = this.albums.map(album => album.gender);
+            return [...new Set(genders)];
+        }
+    },
+    async created(){
+        try{
+            const response = await axios.get('http://localhost:8000/genders/')
+            this.genders = response.data
+        } catch(error) {
+            console.error('Failed to fetch', error)
         }
     }
 }

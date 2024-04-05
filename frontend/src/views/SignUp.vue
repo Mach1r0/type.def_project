@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../assets/logo.png" alt="Description of image" class="logo-style"/>
-    <router-link to="/home" class="title-page">TYPE.DEF</router-link>
+    <router-link to="/" class="title-page">TYPE.DEF</router-link>
   
     <div class="container">
       <h1 class="title">REGISTER</h1>

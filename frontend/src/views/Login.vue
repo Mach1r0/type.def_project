@@ -5,7 +5,7 @@
       alt="Description of image"
       class="logo-style"
     />
-    <router-link to="/home" class="title-page">TYPE.DEF</router-link>
+    <router-link to="/" class="title-page">TYPE.DEF</router-link>
   </div>
   <div class="container">
     <form @submit.prevent="submit">
@@ -135,7 +135,6 @@ export default {
   border-radius: 15px;
   outline: none;
   border: none;
-  padding: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
