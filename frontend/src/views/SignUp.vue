@@ -21,20 +21,16 @@
       </div>
     </div>
   
-    <app-footer class="signup-footer"/>
   </div>
 </template>
   
 <script lang="ts">
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import AppFooter from '../components/base/footer.vue';
 
 export default {
   name: "SignUp",
-  components: {
-    AppFooter
-  },
+  
   setup() {
     const data = reactive({
       name: '', 

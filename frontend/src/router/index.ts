@@ -7,12 +7,14 @@ import AppAlbums from '@/components/albums/index.vue'
 import AppBestof from '../components/navbar-pages/best_of_.vue'
 import AppArtist from '../components/artists/index.vue'
 import AppGender from '../components/gender/index.vue'
+import AlbumPage from '../components/albums/slug.vue' // Import your AlbumPage component
 
 const routes: Array<RouteRecordRaw> = [
   {path: '/', component: HomePage},
   {path: '/login', component: Login},
   {path: '/sign-up', component: SignUp},
   {path: '/albums', component: AppAlbums},
+  {path: '/albums/:slug', component: AlbumPage}, // Add this line
   {path: '/gender', component: AppGender},
   {path: '/artist', component: AppArtist},
   {path: '/best-of', component: AppBestof}

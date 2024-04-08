@@ -1,4 +1,5 @@
 <template>
+  <div class="geral">
   <div class="container-header">
     <img
       src="../assets/logo.png"
@@ -26,6 +27,7 @@
       <p style="color: black">Don't have account?</p>
       <router-link to="/sign-up" class="register-link"> <u> Register now! </u> </router-link>
     </div>
+  </div>
   </div>
 </template>
 
@@ -73,6 +75,10 @@ export default {
 
 
 <style>
+.geral{
+  width: 100vw;
+  height: 100vh;
+}
 * {
   margin: 0;
   padding: 0;
@@ -81,9 +87,9 @@ export default {
 
 .container-header{
   background-color: rgb(192, 192, 192);
-  margin-top: -60px;
   max-width: 2000px;
   height: 130px;
+  margin: 0;
 }
 
 .title-page{
@@ -94,7 +100,6 @@ export default {
   display: flex;
   width: 100%;
   margin-left: 170px;
-  margin-top: -50px;  
   justify-content: flex-start;
 }
 

@@ -2,12 +2,12 @@
     <AppNavBar></AppNavBar>
     <div>
         <ul>
-            <li v-for="(albums, index) in albums" :key="index">
-                <img :src="albums.image" :alt="albums.name" />
-                <router-link :to="`/albums/${albums.slug}`"> <!-- Add this line -->
-                    <h3>{{ albums.name }}</h3>
+            <li v-for="(album, index) in albums" :key="index">
+                <img :src="album.image" :alt="album.name" />
+                <router-link :to="`/albums/${album.slug}`">
+                    <h3>{{ album.name }}</h3>
                 </router-link>
-                <p>{{ albums.description }}</p>
+                <p>{{ album.description }}</p>
             </li>
         </ul>
     </div>
@@ -24,7 +24,7 @@ export default {
     },
     data() {
         return {
-            albums: []
+            albums: null
         }
     },
     async created() {
