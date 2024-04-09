@@ -1,120 +1,124 @@
 <template>
-  <div class="container-all">
-    <div class="container-topo">
-      <div class="logo-style">
-        <img :src="require('@/assets/Daco_5934324.png')" alt="Logo" />      
+  <header>
+    <div class="head">
+      <div class="h-left">
+        <h1>TYPE.DEF</h1>
+        <div class="h-search">
+          <input type="text" v-model="searchQuery" placeholder="Search">
+          <i class="fas fa-search"></i>
+        </div>
       </div>
-      <h1 class="title-style">TYPE.DEF</h1>
-      <form @submit.prevent="handleSearch">
-        <input
-          class="search-style"
-          type="text"
-          v-model="searchQuery"
-          placeholder="Search for artist, album or track"
-        />
-      </form>
-      <div class="style-user">
-        <router-link to="/login">Login</router-link>
+      <div class="h-right">
         <router-link to="/sign-up">Register</router-link>
+        <router-link class="login-css" to="/login">Login</router-link>
       </div>
     </div>
-    <div class="navbar-links">
+    <div class="head-links">
       <router-link to="/gender">Genres</router-link>
       <router-link to="/artist">Artists</router-link>
       <router-link to="/albums">Albums</router-link>
-      <router-link to="/SingUp">Profile</router-link>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
 export default {
-  name: "AppNavBar",
+  name: 'AppNavBar',
   data() {
     return {
-      searchQuery: "",
+      searchQuery: ""
     };
-  },
-  methods: {
-    handleSearch() {
-      console.log(this.searchQuery);
-    },
-  },
+  }
 };
 </script>
 
 <style>
-.container-all {
-  width: 100%;
-  height: 10%;
-  padding: 0;
-  display: flex;
-  background-color: black;
-  flex-direction: column;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+    }
 
-.container-topo {
-  background-color: green;
-  display: flex;
-  gap: 4rem;
-  height: 100%;
-}
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+    .head {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .h-left {
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+    .h-left h1 {
+        padding: 30px;
+    }
+    .h-search {
+        display: flex;
+        align-items: center;
+        background-color: #FFFFFF;
+        height: 40px;
+        border-radius: 7px;
+        box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.75);
+    }
+    .h-search input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-radius: 7px;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bolder;
+        background-color: transparent;
+    }
+    .h-search i {
+        padding: 10px;
+        color: #cccccc;
+        background-color: transparent;
+    }
 
-.logo-style {
-  background-color: white;
-  width: 50px;
-  height: 50px;
-  width: 100%;
-  height: 100%;
+    .h-right {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 30px;
+    }
+    .h-right a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+    }
+    .login-css {
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
 
-}
-
-.title-style {
-  color: black;
-  text-decoration: none;
-  align-items: left;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.search-style {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  height: 51px;
-  width: 420px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-family: "inter", sans-serif;
-  outline: none;
-  border: none;
-}
-
-.style-user {
-  gap: 4rem;
-  display: flex;
-  justify-content: end;
-  background-color: grey;
-  width: 100%;
-  margin-right: 30px;
-}
-
-.style-user a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 4rem;
-  margin-top: 60px;
-  margin-left: 120px;
-}
-
-.navbar-links a {
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-}
+    .head-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        padding-top: 10px;
+        border-bottom: 2px solid #cccccc;
+    }
+    .head-links a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+        font-size: 16px;
+        border-radius: 12px 12px 0 0;
+        padding: 7px;
+    }
+    .head-links a:hover {
+        background-color: #cccccc;
+    }
 </style>
+

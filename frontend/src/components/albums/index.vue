@@ -1,17 +1,20 @@
 <template>
     <AppNavBar></AppNavBar>
-    <div>
-        <ul>
-            <li v-for="(album, index) in albums" :key="index">
-                <img :src="album.image" :alt="album.name" />
-                <router-link :to="`/albums/${album.slug}`">
-                    <h3>{{ album.name }}</h3>
-                </router-link>
-                <p>{{ album.description }}</p>
-            </li>
-        </ul>
+    <div class="container-pai">
+      <ul class="container-albums">
+        <li v-for="(album, index) in albums" :key="index">
+          <div class="album-item" :style="{backgroundImage: `url(${album.image})`}">
+            <div class="imagem-style"></div>
+          </div>
+          <router-link class="albumname-style" :to="`/albums/${album.slug}`">
+            <h3 class="text-style"> {{ album.name }} </h3>
+          </router-link>
+          <p class="description-style">{{ album.description }}</p>
+        </li>
+      </ul>
     </div>
-</template>
+  </template>
+  
 
 <script>
 import axios from 'axios'
@@ -40,21 +43,67 @@ export default {
 </script>
 
 <style>
-    ul{
-        display: flex;
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 10px;
-        box-sizing: border-box;
-    }
+*{
+    border: none;
+    margin: 0 auto;
+    padding: 0;
+}
 
-    li{
-        list-style: none;
-        padding: 20px;
-        margin: 10px;
-        text-align: center;
-        border: 1px solid #229966;
-        flex-grow: 1;
-    }
+.albumname-style {
+    border: none;
+    color: inherit; 
+    text-decoration: none;
+}
+
+.text-style {
+    text-decoration: none;
+    margin: 0 auto;
+    outline: none;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center horizontally */
+    display: flex;
+  }
+  
+.container-albums {
+    align-items: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Displaying items in a grid with minimum width of 300px */
+    gap: 20px; /* Adjust the gap between items */
+    list-style: none;
+    padding: 0;
+  }
+  
+  .album-item {
+    background: black;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    height: 400px; 
+    width: 600px; 
+    justify-content: center;
+    text-decoration: center;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 40px; /* Increase the margin to add more space */
+}
+
+.imagem-style{
+    border: none;
+    height: 500px; 
+    width: 600px; 
+    background-size: cover;
+    background-position: center;
+}
+
+.container-albums li {
+    background-color: transparent; /* Add this line */
+    border: none;
+}
 
 </style>
