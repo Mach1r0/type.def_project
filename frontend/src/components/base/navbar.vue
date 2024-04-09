@@ -2,7 +2,7 @@
   <div class="container-all">
     <div class="container-topo">
       <div class="logo-style">
-        <img src="/logo.png" alt="Logo" />
+        <img :src="require('@/assets/Daco_5934324.png')" alt="Logo" />      
       </div>
       <h1 class="title-style">TYPE.DEF</h1>
       <form @submit.prevent="handleSearch">
