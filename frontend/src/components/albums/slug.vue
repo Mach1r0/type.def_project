@@ -1,29 +1,32 @@
 <template>
     <AppNavBar></AppNavBar>
     <div class="container-all">
-        <div v-if="album" class="album-detail">
-            <div class="album-header">
-                <img class="album-image" :src="album.image" :alt="album.name" />
-                <h1 class="album-name">{{ album.name }}</h1>
+        <div v-if="album" class="album-details">
+            <div class="block-left">
+                <img class="imagem-detail" :src="album.image" :alt="album.name" />
             </div>
             <div class="album-info">
-                <p class="album-gender">{{ album.gender }}</p>
-                <p class="album-type">{{  album.type }}</p>
-                <p class="album-release">{{ album.release }}</p>
-                <p class="album-artist">{{ album.artist }}</p>
-                <p class="album-description">{{ album.description }}</p>
+                <h1 class="album-name">{{ album.name }} </h1>
+                <hr>
+                <p class="album-artist">Artist: {{ album.artist }} </p>
+                <p class="album-gender">Gender: {{ album.gender }} </p>
+                <p class="album-rating">Rating: / 5.0 from {{album.review_count}} ratings </p>
+                <p class="album-type">Type: {{ album.type }} </p>
+                <p class="album-release">Released: {{ album.release }} </p>
+                <p class="album-description">Description: {{ album.description }} </p>
+                <hr>
             </div>
         </div>
         <div v-if="album">
-            <div v-for="(reviews, index) in album.reviews" :key="index" class="review">
-                <h2 class="review-title">{{ reviews.title }}</h2>
-                <p class="review-content">{{ reviews.content }}</p>
-                <p class="review-stars"> {{ reviews.stars}}</p>
+            <div v-for="(review, index) in album.reviews" :key="index" class="review">
+                <h2 class="review-title">{{ review.title }}</h2>
+                <p class="review-content">{{ review.content }}</p>
+                <p class="review-stars"> {{ review.stars }}</p>
             </div>
         </div>
     </div>
 </template>
-                                                                
+
 <script>
 import axios from 'axios'
 import AppNavBar from '@/components/base/navbar.vue'
@@ -39,94 +42,103 @@ export default {
         }
     },
     async created(){
-        try{
-            const slug = this.$route.params.slug
-            const response = await axios.get(`http://localhost:8000/albums/${slug}`)
-            const album = response.data
+    try{
+        const slug = this.$route.params.slug
+        const response = await axios.get(`http://localhost:8000/albums/${slug}`)
+        const album = response.data
 
-            // Prepend the base URL if the image URL is relative
-            if (album.image.startsWith('/')) {
-                album.image = `http://localhost:8000${album.image}`
-            }
+        console.log(album.review_count); // Log the review count
 
-            this.$nextTick(() => {
-                this.album = album
-            })
-
-            console.log(this.album.image) // Log the image URL
-        } catch(error) {
-            console.error('Failed to fetch', error)
+        // Prepend the base URL if the image URL is relative
+        if (album.image && album.image.startsWith('/')) {
+            album.image = `http://localhost:8000${album.image}`
         }
+
+        this.$nextTick(() => {
+            this.album = album
+        })
+
+        console.log(this.album.image) // Log the image URL
+    } catch(error) {
+        console.error('Failed to fetch', error)
     }
 }
+}
 </script>
-                                                                
+
 <style>
-.container-all{
-    width: 100vw;
-    height: 100vh;
+
+.container-all {
+    display: flex;
+    padding: 30px;
+}
+
+.album-details {
+    display: flex;
+}
+
+.block-left{
+    background-color: black;
+    width: 450px; 
+    height: 100vh; 
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    padding: 20px;
-    background: #f4f4f4;
-}
-
-.album-detail {
-    display: flex;
-    flex-direction: row;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+.imagem-detail {
+    margin-top: 40px;
+    width: 400px; /* Set this to a fixed size */
+    height: 400px; /* Set this to a fixed size */
     background: #fff;
     box-shadow: 0px 0px 20px #bbb;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
-.album-header {
+.album-info {
+    padding: 20px; /* Increase padding to increase the size of the div */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+    align-items: flex-start;
+    background-color: grey;
+    margin-top: -100px;
+    position: absolute;
+    top: 310px;
+    left: 500px;
+    width: 1500px;
+    height: 100vh; 
 }
 
-.album-image {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
+.album-info hr {
+    background-color: black;
+    size: 30px;
+    font-size: 50px;
+    height: 2.5px;
+    width: 100%;
+}
+.album-info h1 {
+    font-size: 45px;
+    color: black;
+    margin-bottom: 10px;
 }
 
 .album-name {
     font-size: 2em;
-    margin-top: 0.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
     color: #444;
 }
 
-.album-info {
-    width: 50%;
-    padding-left: 20px;
-}
-
 .album-info p {
-    font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 1em;
-    color: #666;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 0.5em;
+    color: black;
 }
 
 .review {
-    border-top: 1px solid #ddd;
     padding-top: 1em;
     margin-top: 1em;
+    border-top: 1px solid #ddd;
 }
 
 .review-title {
@@ -135,10 +147,4 @@ body {
     color: #444;
 }
 
-.review p {
-    font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 1em;
-    color: #666;
-}
 </style>

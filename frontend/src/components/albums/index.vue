@@ -31,14 +31,17 @@ export default {
         }
     },
     async created() {
-        try {
-            const response = await axios.get('http://localhost:8000/albums')
-            console.log(response.data)  // Add this line
-            this.albums = response.data
-        } catch (error) {
-            console.error('Failed to fetch albums:', error)
-        }
+    try {
+        const response = await axios.get('http://localhost:8000/albums')
+        this.albums = response.data
+
+        this.albums.forEach(album => {
+            console.log(album.review_count);
+        });
+    } catch (error) {
+        console.error('Failed to fetch albums:', error)
     }
+}
 }
 </script>
 
@@ -66,14 +69,17 @@ export default {
   }
   
 .container-albums {
-    align-items: center;
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Displaying items in a grid with minimum width of 300px */
-    gap: 20px; /* Adjust the gap between items */
-    list-style: none;
-    padding: 0;
-  }
+  align-items: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Displaying items in a grid with 3 columns */
+  list-style: none;
+  padding: 0;
+  gap: 5rem;
+  justify-content: space-around;
+  margin: 0;
+  margin-left: 40px;
+}
   
   .album-item {
     background: black;
@@ -90,7 +96,7 @@ export default {
     text-decoration: center;
     gap: 1rem;
     justify-content: space-between;
-    margin: 40px; /* Increase the margin to add more space */
+    margin: 40px; 
 }
 
 .imagem-style{
@@ -104,6 +110,6 @@ export default {
 .container-albums li {
     background-color: transparent; /* Add this line */
     border: none;
-}
+  }
 
 </style>
