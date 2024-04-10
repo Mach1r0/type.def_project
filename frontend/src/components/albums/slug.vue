@@ -15,14 +15,14 @@
                 <p class="album-release">Released: {{ album.release }} </p>
                 <p class="album-description">Description: {{ album.description }} </p>
                 <hr>
+                <div v-if="album">
+                    <div v-for="(review, index) in album.reviews" :key="index" class="review">
+                        <h2 class="review-title">{{ review.title }}</h2>
+                        <p class="review-content">{{ review.content }}</p>
+                        <p class="review-stars"> {{ review.stars }}</p>
+                    </div>
             </div>
         </div>
-        <div v-if="album">
-            <div v-for="(review, index) in album.reviews" :key="index" class="review">
-                <h2 class="review-title">{{ review.title }}</h2>
-                <p class="review-content">{{ review.content }}</p>
-                <p class="review-stars"> {{ review.stars }}</p>
-            </div>
         </div>
     </div>
 </template>
