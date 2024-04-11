@@ -4,6 +4,12 @@
         <div v-if="album" class="album-details">
             <div class="block-left">
                 <img class="imagem-detail" :src="album.image" :alt="album.name" />
+                <h3 class="track-style"> Track listing </h3>
+                <div class="music-info">
+                    <div class="musica-list">
+                        <p>oi</p>
+                    </div>
+                </div>
             </div>
             <div class="album-info">
                 <h1 class="album-name">{{ album.name }} </h1>
@@ -15,12 +21,15 @@
                 <p class="album-release">Released: {{ album.release }} </p>
                 <p class="album-description">Description: {{ album.description }} </p>
                 <hr>
+            <div class="review-style">
+                <h3> Reviews </h3>
                 <div v-if="album">
                     <div v-for="(review, index) in album.reviews" :key="index" class="review">
                         <h2 class="review-title">{{ review.title }}</h2>
                         <p class="review-content">{{ review.content }}</p>
                         <p class="review-stars"> {{ review.stars }}</p>
-                    </div>
+                </div>
+            </div>
             </div>
         </div>
         </div>
@@ -68,43 +77,71 @@ export default {
 
 <style>
 
+.music-info{
+    display: flex;
+    background-color: #D9D9D9;
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 40px;
+}
+
+.review-style{
+    margin-top: 35px;
+}
+.review-style p{
+    margin-left: 35px;
+    display: flex;
+}
+.review-title h3{
+    color: black;
+}
+
+.review-style h3{
+    left: 0;
+    display: flex;
+    font-size: 25px;
+    
+}
+
 .container-all {
     display: flex;
     padding: 30px;
 }
 
 .album-details {
+    margin-top: 32px;
+    box-shadow: 0px 0px 20px #717070;
+    border-radius: 15px;
+    width: 500px;
     display: flex;
+    padding: 40px;
+    justify-content: center;
+    margin-left: 145px;
 }
 
-.block-left{
-    background-color: black;
-    width: 450px; 
-    height: 100vh; 
-    display: flex;
-    justify-content: center;
-}
 
 .imagem-detail {
-    margin-top: 40px;
-    width: 400px; /* Set this to a fixed size */
-    height: 400px; /* Set this to a fixed size */
+    width:  450px; 
+    height: 450px;
     background: #fff;
     box-shadow: 0px 0px 20px #bbb;
     border-radius: 15px;
 }
 
 .album-info {
-    padding: 20px; /* Increase padding to increase the size of the div */
+    padding: 20px; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: grey;
+    background-color: #D9D9D9;
     margin-top: -100px;
+    border-radius: 15px;
     position: absolute;
-    top: 310px;
-    left: 500px;
-    width: 1500px;
+    top: 350px;
+    left: 680px;
+    width: 1250px;
     height: 100vh; 
 }
 
@@ -115,6 +152,7 @@ export default {
     height: 2.5px;
     width: 100%;
 }
+
 .album-info h1 {
     font-size: 45px;
     color: black;
@@ -136,15 +174,26 @@ export default {
 }
 
 .review {
+    left: 0;
     padding-top: 1em;
-    margin-top: 1em;
-    border-top: 1px solid #ddd;
+    margin-top: 10em;
+    border-top: 2px solid #000000;
 }
 
 .review-title {
+    margin-left: 30px;
+    width: 100%;
+    background-color: #000000;
+    display: flex;
     font-size: 1.5em;
     margin-bottom: 0.5em;
-    color: #444;
+    color: white;
+}
+.track-style {
+    display: flex;
+    margin-top: 100px;
+    margin-left: 10px;
+    font-size: 20px;
 }
 
 </style>

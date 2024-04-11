@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style>
+
 *{
     border: none;
     margin: 0 auto;
@@ -81,7 +82,7 @@ export default {
   margin-left: 40px;
 }
   
-  .album-item {
+.album-item {
     background: black;
     background-size: cover;
     background-position: center;
@@ -110,6 +111,6 @@ export default {
 .container-albums li {
     background-color: transparent; /* Add this line */
     border: none;
-  }
+}
 
 </style>
