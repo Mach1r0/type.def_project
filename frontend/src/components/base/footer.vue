@@ -23,8 +23,9 @@
  
  <style scoped>
     footer{
-       background: lightcyan;
-       padding: 10px;
-       margin-top: 200px;
-    }
+      background: lightcyan;
+      padding: 10px;
+      height: auto; 
+        
+   }
  </style>

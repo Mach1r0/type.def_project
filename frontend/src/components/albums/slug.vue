@@ -21,29 +21,31 @@
                 <p class="album-release">Released: {{ album.release }} </p>
                 <p class="album-description">Description: {{ album.description }} </p>
                 <hr>
-            <div class="review-style">
-                <h3> Reviews </h3>
-                <div v-if="album">
-                    <div v-for="(review, index) in album.reviews" :key="index" class="review">
-                        <h2 class="review-title">{{ review.title }}</h2>
-                        <p class="review-content">{{ review.content }}</p>
-                        <p class="review-stars"> {{ review.stars }}</p>
+                <div class="review-style">
+                    <h3> Reviews </h3>
+                    <div v-if="album">
+                        <div v-for="(review, index) in album.reviews" :key="index" class="review">
+                            <h2 class="review-title">{{ review.title }}</h2>
+                            <p class="review-content">{{ review.content }}</p>
+                            <p class="review-stars"> {{ review.stars }}</p>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
         </div>
     </div>
+    <AppFooter class="app-footer"></AppFooter>
 </template>
 
 <script>
 import axios from 'axios'
 import AppNavBar from '@/components/base/navbar.vue'
-
+import AppFooter from '@/components/base/footer.vue'
 export default {
     name: 'SlugApp',
     components:{
         AppNavBar,
+        AppFooter,
     },
     data() {
         return {
@@ -76,24 +78,36 @@ export default {
 </script>
 
 <style>
+* {
+    height: auto;
+}
+.block-left{
+    padding: 10px;
+    height: auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
 .music-info{
-    display: flex;
     background-color: #D9D9D9;
-    width: 100%;
-    height: 400px;
     border-radius: 10px;
     display: flex;
-    margin-top: 40px;
 }
 
 .review-style{
-    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
 }
+
 .review-style p{
     margin-left: 35px;
     display: flex;
 }
+
 .review-title h3{
     color: black;
 }
@@ -102,47 +116,41 @@ export default {
     left: 0;
     display: flex;
     font-size: 25px;
-    
 }
 
 .container-all {
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 30px;
+    width: 100%;
 }
 
 .album-details {
-    margin-top: 32px;
+    justify-content: space-between;
+    width: 80%;
+    padding: 30px;
     box-shadow: 0px 0px 20px #717070;
     border-radius: 15px;
-    width: 500px;
     display: flex;
-    padding: 40px;
-    justify-content: center;
-    margin-left: 145px;
 }
 
 
 .imagem-detail {
-    width:  450px; 
-    height: 450px;
+    height: 25%;
     background: #fff;
     box-shadow: 0px 0px 20px #bbb;
     border-radius: 15px;
 }
-
 .album-info {
     padding: 20px; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #D9D9D9;
-    margin-top: -100px;
     border-radius: 15px;
-    position: absolute;
-    top: 350px;
-    left: 680px;
-    width: 1250px;
-    height: 100vh; 
+    width: 70%;
+    height: auto;
 }
 
 .album-info hr {
@@ -172,13 +180,10 @@ export default {
     margin-bottom: 0.5em;
     color: black;
 }
-
 .review {
-    left: 0;
-    padding-top: 1em;
-    margin-top: 10em;
-    border-top: 2px solid #000000;
+    width: 100%;
 }
+
 
 .review-title {
     margin-left: 30px;
@@ -191,8 +196,6 @@ export default {
 }
 .track-style {
     display: flex;
-    margin-top: 100px;
-    margin-left: 10px;
     font-size: 20px;
 }
 
