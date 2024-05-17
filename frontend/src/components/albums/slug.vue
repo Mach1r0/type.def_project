@@ -58,9 +58,6 @@ export default {
         const response = await axios.get(`http://localhost:8000/albums/${slug}`)
         const album = response.data
 
-        console.log(album.review_count); // Log the review count
-
-        // Prepend the base URL if the image URL is relative
         if (album.image && album.image.startsWith('/')) {
             album.image = `http://localhost:8000${album.image}`
         }
@@ -69,7 +66,6 @@ export default {
             this.album = album
         })
 
-        console.log(this.album.image) // Log the image URL
     } catch(error) {
         console.error('Failed to fetch', error)
     }
@@ -137,7 +133,8 @@ export default {
 
 
 .imagem-detail {
-    height: 25%;
+    height: 90%;
+    width: 100%;
     background: #fff;
     box-shadow: 0px 0px 20px #bbb;
     border-radius: 15px;
@@ -180,10 +177,10 @@ export default {
     margin-bottom: 0.5em;
     color: black;
 }
+
 .review {
     width: 100%;
 }
-
 
 .review-title {
     margin-left: 30px;
@@ -194,6 +191,7 @@ export default {
     margin-bottom: 0.5em;
     color: white;
 }
+
 .track-style {
     display: flex;
     font-size: 20px;

@@ -5,7 +5,7 @@
     <h3 class="name-page"> All Gender </h3>
     
     <div v-for="(genders, index) in genders" :key="index">
-        <router-link :to="`/genders/${genders.slug}`"> 
+        <router-link :to="`/gender/${genders.slug}`"> 
             {{ genders.name }}
         </router-link>
         <div class="img">

@@ -79,7 +79,6 @@ export default {
   gap: 5rem;
   justify-content: space-around;
   margin: 0;
-  margin-left: 40px;
 }
   
 .album-item {
@@ -87,29 +86,22 @@ export default {
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    border: none;
     display: flex;
-    flex-direction: column;
-    outline: none;
-    height: 400px; 
-    width: 600px; 
-    justify-content: center;
-    text-decoration: center;
-    gap: 1rem;
-    justify-content: space-between;
+    height: 325px; 
+    width: 420px; 
     margin: 40px; 
 }
 
-.imagem-style{
-    border: none;
-    height: 500px; 
-    width: 600px; 
-    background-size: cover;
-    background-position: center;
+.container-pai{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
 }
 
+
 .container-albums li {
-    background-color: transparent; /* Add this line */
+    background-color: transparent;
     border: none;
 }
 
