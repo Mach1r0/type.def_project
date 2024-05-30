@@ -1,20 +1,23 @@
 <template>
-    <AppNavBar></AppNavBar>
-    <div class="container-pai">
-      <ul class="container-albums">
-        <li v-for="(album, index) in albums" :key="index">
-          <div class="album-item" :style="{backgroundImage: `url(${album.image})`}">
-            <div class="imagem-style"></div>
-          </div>
-          <router-link class="albumname-style" :to="`/albums/${album.slug}`">
-            <h3 class="text-style"> {{ album.name }} </h3>
-          </router-link>
-          <p class="description-style">{{ album.description }}</p>
-        </li>
-      </ul>
+  <AppNavBar></AppNavBar>
+  <div class="container-pai">
+    <div v-if="albums.length === 0">
+      <h1>Carregando...</h1>
     </div>
-  </template>
-  
+    <ul v-else class="container-albums">
+      <li v-for="(album, index) in albums" :key="index">
+        <div class="album-item" :style="{ backgroundImage: 'url(' + album.image + ')' }">
+          <div class="imagem-style"></div>
+        </div>
+        <router-link class="albumname-style" :to="`/albums/${album.slug}`">
+          <h3 class="text-style"> {{ album.name }} </h3>
+        </router-link>
+        <p class="description-style">{{ album.description }}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+
 
 <script>
 import axios from 'axios'
@@ -27,13 +30,18 @@ export default {
     },
     data() {
         return {
-            albums: null
+            albums: []
         }
     },
-    async created() {
+async created() {
     try {
-        const response = await axios.get('http://localhost:8000/albums')
-        this.albums = response.data
+        const response = await axios.get('http://localhost:8000/albums/')
+        console.log('Albums:', response.data)
+        if (response.data.results) {
+            this.albums = response.data.results // Access the array from the 'results' property
+        } else {
+            this.albums = []
+        }
 
         this.albums.forEach(album => {
             console.log(album.review_count);

@@ -4,13 +4,15 @@
         <div v-if="album" class="album-details">
             <div class="block-left">
                 <img class="imagem-detail" :src="album.image" :alt="album.name" />
-                <h3 class="track-style"> Track listing </h3>
-                <div class="music-info">
-                    <div class="musica-list">
-                        <p>oi</p>
-                    </div>
+                <div class="track-style ">
+                    <h3> Track listing </h3>
+                        <div class="music-info">
+                            <div v-for="(music, index) in album.musics" :key="index" class="musica-list">
+                                <p class="music-list-info"> {{ index + 1 }} -  {{ music.name }} - {{ music.time }}</p>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-            </div>
             <div class="album-info">
                 <h1 class="album-name">{{ album.name }} </h1>
                 <hr>
@@ -65,6 +67,7 @@ export default {
         this.$nextTick(() => {
             this.album = album
         })
+        console.log(album.musics)
 
     } catch(error) {
         console.error('Failed to fetch', error)
@@ -77,6 +80,13 @@ export default {
 * {
     height: auto;
 }
+
+.musica-list{
+    display: flex;
+    gap: 0rem;
+    margin-left: 20px;
+}
+
 .block-left{
     padding: 10px;
     height: auto;
@@ -84,12 +94,15 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-left: 20px;
 }
 
 .music-info{
+    width: auto;
     background-color: #D9D9D9;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
 }
 
 .review-style{
@@ -194,6 +207,7 @@ export default {
 
 .track-style {
     display: flex;
+    flex-direction: column;
     font-size: 20px;
 }
 

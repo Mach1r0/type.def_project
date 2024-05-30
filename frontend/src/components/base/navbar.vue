@@ -2,7 +2,7 @@
   <header>
     <div class="head">
       <div class="h-left">
-        <h1>TYPE.DEF</h1>
+        <router-link to='/Home'>TYPE.DEF</router-link>
         <div class="h-search">
           <input type="text" v-model="searchQuery" placeholder="Search">
           <i class="fas fa-search"></i>
