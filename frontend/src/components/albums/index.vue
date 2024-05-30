@@ -72,8 +72,8 @@ async created() {
     margin: 0 auto;
     outline: none;
     justify-content: center;
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center horizontally */
+    align-items: center;
+    text-align: center;
     display: flex;
   }
   
@@ -81,7 +81,7 @@ async created() {
   align-items: center;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Displaying items in a grid with 3 columns */
+  grid-template-columns: repeat(3, 1fr); 
   list-style: none;
   padding: 0;
   gap: 5rem;
@@ -110,7 +110,7 @@ async created() {
 
 .container-albums li {
     background-color: transparent;
-    border: none;
+    border: none
 }
 
 </style>

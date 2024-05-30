@@ -2,7 +2,7 @@
   <header>
     <div class="head">
       <div class="h-left">
-        <router-link to='/Home'>TYPE.DEF</router-link>
+        <router-link to='/' class="title-class">TYPE.DEF</router-link>
         <div class="h-search">
           <input type="text" v-model="searchQuery" placeholder="Search">
           <i class="fas fa-search"></i>
@@ -45,6 +45,16 @@ export default {
         display: flex;
         flex-direction: column;
     }
+    .title-class{
+      color: black;
+      text-decoration: none;
+      font-size: 2rem;
+      font-weight: bolder;
+      margin-left: 10px;
+      gap: 1rem;
+      padding: 20px;
+    }
+
     .head {
         display: flex;
         width: 100%;
@@ -120,5 +130,6 @@ export default {
     .head-links a:hover {
         background-color: #cccccc;
     }
+    
 </style>
 
