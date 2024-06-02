@@ -1,36 +1,47 @@
 <template>
-  <div>
-    <img src="../assets/logo.png" alt="Description of image" class="logo-style"/>
-    <router-link to="/" class="title-page">TYPE.DEF</router-link>
-  
-    <div class="container">
+  <AppNavBar></AppNavBar>
+  <section>
+    <div class="container-all">
       <h1 class="title">REGISTER</h1>
-  
+     
       <div class="register">
-        <input v-model="data.email" type="email" placeholder="Email address" />
-        <input v-model="data.name" type="text" placeholder="Username" />
-        <input v-model="data.password" type="password" placeholder="Password" />
-        <input type="password" placeholder="Confirm Password" />
-  
-        <button @click="submit">REGISTER</button>
-  
-        <div class="text-under">
-          <p>Already have an account?</p>
-          <router-link to="/login" class="txt-login">Login</router-link>
+        <div class="input-group">
+          <p>Email</p>
+          <input v-model="data.email" type="email" placeholder="Email address" />
         </div>
+        <div class="input-group">
+          <p>Username</p>
+          <input v-model="data.name" type="text" placeholder="Username" />
+        </div>
+        <div class="input-group">
+          <p>Password</p>
+          <input v-model="data.password" type="password" placeholder="Password" />
+        </div>
+        <div class="input-group">
+          <p>Confirm Password</p>
+          <input type="password" placeholder="Confirm Password" />
+        </div>
+        <button class="btn" @click="submit">Create Account</button>
+      </div>
+
+      <div class="text-under">
+        <p>Already have an account?</p>
+        <router-link to="/login" class="txt-login">Login</router-link>
       </div>
     </div>
-  
-  </div>
+  </section>
 </template>
+
   
 <script lang="ts">
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
-
+import AppNavBar from '@/components/base/navbar.vue'
 export default {
   name: "SignUp",
-  
+  components:{
+    AppNavBar,
+  },
   setup() {
     const data = reactive({
       name: '', 
@@ -41,7 +52,6 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-     
       try {
         const response = await fetch('http://localhost:8000/api/register/', {
           method: 'POST',
@@ -55,7 +65,7 @@ export default {
 
         await router.push('/login');
       } catch (error) {
-        console.error('There was a problem with the fetch operation: ');
+        console.error('There was a problem with the fetch operation: ', error);
       }
     };
 
@@ -65,109 +75,96 @@ export default {
     };
   }
 };
-
 </script>
 
-  <style>
-  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-  </style>
-  
-  <style>
-  .signup-footer{
-        background: lightcyan;
-        padding: 10px;
-        margin-top: 400px;
-  }
-  
-  .logo-style{
-      max-width: 100px;
-  }
-  
-  .title-page{
-      font-style: none;
-      text-decoration: none;
-      font-size: 30px;
-      font-weight: bold;
-      color: black;
-      padding: 0 ;
-      display: flex;
-      justify-content: flex-start;
-      align-items: left;
-      margin-left: 30px;
-      margin-top: -40px;
-      cursor: pointer;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .logo {
-    width: 100px;
-  }
-  
-  .register {
-    width: 50%;
-    height: 45px;
-    max-width: 420px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 10px;
-    margin: 0 auto;
-    align-items: center; 
-  }
+<style scoped>
 
-  .text-under{
-      text-decoration: none;
-      color: black;
-  }
-  .txt-login{
-      color: black;
-    }
-    
-    .register input {
-      background-color: white;
-    }
-    
-    .register button {
-      background-color: rgb(0, 0, 0);
-      cursor: pointer
-  }
-  
-  .register input, button {
-    height: 45px;
-    width: 420px;
-    border-radius: 7px;
-    border: none;
-    padding: 8px;
-    outline: none;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  }
-  
-  .register input::placeholder {
-    color: black; /* Change to the desired color */
-  }
-  
-  .title {
-    color: black;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: "inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-  }
-  
-  .register button {
-    color: white;
-    border-radius: 10px;
-    height: 50px;
-    font-size: 15px;
-    width: 120px;
-    height: 40px;
-    font: 100px;
-    font-family: "Oswald", sans-serif;
-  }
-  </style>
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  background-color: #0b1528;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.container-all {
+  display: flex;
+  flex-direction: column;
+  width: 50%; /* Aumentar o tamanho geral */
+  color: white;
+  border-radius: 10px;
+}
+
+.title {
+  color: white;
+  width: 64%;
+  margin-left: 0;
+  padding: 1rem; 
+  border-radius: 10px;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 55%;
+  margin-top: 5px;
+  background-color: #141723;
+  padding: 2rem;
+  border-radius:  5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group p {
+  margin-bottom: 0.5rem; 
+  color: white;
+}
+
+.register input {
+  border-radius: 5px;
+  font-size: 18px; 
+  color: black;
+  padding: 0.5rem; 
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.text-under{
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 65%;
+  font-size: 20px;
+  gap: 1rem;
+}
+.text-under a{
+  text-decoration: none;
+  color: #84c5fb;
+  cursor: pointer;
+}
+
+.btn{
+  font-size: 16px;
+  display: flex;
+  background-color: #283a58;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+</style>

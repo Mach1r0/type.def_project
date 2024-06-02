@@ -83,7 +83,7 @@ header {
     border-radius: 7px;
     font-size: 14px;
     padding: 5px;
-    margin-right: 20px; /* Add this line */
+    margin-right: 20px;
 }
 
 .h-search input {

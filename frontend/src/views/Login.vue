@@ -1,23 +1,24 @@
 <template>
   <AppNavBar></AppNavBar>
   <section>
-  <div class="container-all">
-    <form @submit.prevent="submit">
-      <h1>Log in</h1>
-      <div class="container-login">
-        <input v-model="data.email" type="text" placeholder="Email" required />
-        <input v-model="data.password" type="password" placeholder="Password" required />
+    <div class="container-all">
+      <form @submit.prevent="submit">
+        <h1>Log in</h1>
+        <div class="container-login">
+          <p>Email</p>
+          <input v-model="data.email" type="text" placeholder="Email" required />
+          <p>Password</p>
+          <input v-model="data.password" type="password" placeholder="Password" required />
+        </div>
         <button class="btnlogin" type="submit"> LOGIN </button>
-      </div>     
-    </form>
+      </form>
 
-    <div class="text-under">
-      <p>Don't have account?</p>
-      <router-link to="/sign-up" >  Register now! </router-link>
-      <router-link to="/forgot-password" > Forgot your password? </router-link>
+      <div class="text-under">
+        <p>Don't have account?</p>
+        <router-link to="/sign-up">Register now!</router-link>
+        <router-link to="/forgot-password">Forgot your password?</router-link>
+      </div>
     </div>
-  
-  </div>
   </section>
 </template>
 
@@ -53,7 +54,7 @@ export default {
         await response.json();
         router.push('/');
       } catch (error) {
-        console.error('There was a problem with the fetch operation: ');
+        console.error('There was a problem with the fetch operation: ', error);
       }
     };
 
@@ -63,6 +64,7 @@ export default {
     };
   }
 };
+
 </script>
 
 <style scoped>
@@ -87,37 +89,47 @@ section {
 .container-all {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 80%; 
   color: white;
-  padding: 2rem;
   border-radius: 10px;
+}
+.container-all h1 {
+  margin-bottom: 1.5rem;
 }
 
 .container-login {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  height: 90%;
-  background-color: #272a37;
+  gap: 0.5rem;
+  width: 35vw;
+  height: auto; 
+  background-color: #161a25;
   border-radius: 15px;
   padding: 1rem;
+}
+
+.container-login p {
+  margin: 0;
+  color: #dbe0e9;
 }
 
 .container-login input {
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  height: 100%;
   color: #dbe0e9;
   background-color: #152238;
 }
 
-.container-login button {
-  padding: 0.5rem;
+.btnlogin {
+  margin-top: 1rem; 
+  padding: 1rem; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #323643;
+  color: white;
+  width: 35vw;
 }
 
 .text-under {
@@ -126,7 +138,6 @@ section {
   align-items: center;
   margin-top: 1rem;
   gap: 0.5rem;
-  background-color: pink;
 }
 
 .text-under p {
@@ -136,7 +147,6 @@ section {
 .text-under a {
   text-decoration: none;
   color: #84C5FB;
-  background-color: grey;
   cursor: pointer;
 }
 
