@@ -1,42 +1,35 @@
 <template>
-  <div class="geral">
-  <div class="container-header">
-    <img
-      src="../assets/logo.png"
-      alt="Description of image"
-      class="logo-style"
-    />
-    <router-link to="/" class="title-page">TYPE.DEF</router-link>
-  </div>
-  <div class="container">
+  <AppNavBar></AppNavBar>
+  <section>
+  <div class="container-all">
     <form @submit.prevent="submit">
-      <div class="title-style">
-        <h1>LOGIN</h1>
-      </div>
-
+      <h1>Log in</h1>
       <div class="container-login">
         <input v-model="data.email" type="text" placeholder="Email" required />
         <input v-model="data.password" type="password" placeholder="Password" required />
-        <router-link to="/forgot-password" class="text-forgot"> Forgot your password? </router-link>
-      </div>
-
-      <button class="btnlogin" type="submit"> LOGIN </button>
+        <button class="btnlogin" type="submit"> LOGIN </button>
+      </div>     
     </form>
 
     <div class="text-under">
-      <p style="color: black">Don't have account?</p>
-      <router-link to="/sign-up" class="register-link"> <u> Register now! </u> </router-link>
+      <p>Don't have account?</p>
+      <router-link to="/sign-up" >  Register now! </router-link>
+      <router-link to="/forgot-password" > Forgot your password? </router-link>
     </div>
+  
   </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
-
+import AppNavBar from '@/components/base/navbar.vue'
 export default {
   name: 'LoginPage',
+  components: {
+    AppNavBar,
+  },
   setup() {
     const data = reactive({
       email: '',
@@ -72,112 +65,79 @@ export default {
 };
 </script>
 
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
-<style>
-.geral{
-  width: 100vw;
-  height: 100vh;
-}
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-.container-header{
-  background-color: rgb(192, 192, 192);
-  max-width: 2000px;
-  height: 130px;
   margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.title-page{
-  margin-top: -90px;
-}
-.logo-style {
-  max-width: 150px;
-  display: flex;
+section {
+  height: 100vh;
   width: 100%;
-  margin-left: 170px;
-  justify-content: flex-start;
-}
-
-.container {
-  margin-top: 200px;
-}
-
-.text-forgot {
-  justify-content: end;
-  text-decoration: none;
-  color: grey;
+  background-color: #0b1528;
   display: flex;
-  font-style: italic;
-  width: 420px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-all {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.container-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 90%;
+  background-color: #272a37;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.container-login input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+  color: #dbe0e9;
+  background-color: #152238;
+}
+
+.container-login button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .text-under {
   display: flex;
-  gap: 0.5rem;
-  max-width: 420px;
-  margin-top: 45px;
-  margin: 0 auto;
-  margin-top: 20px;
-  justify-content: center;
-  font-style: italic;
-}
-
-.register-link {
-  color: black;
-  font-style: italic;
-  text-decoration: none; /* Underline the link, you can adjust this based on your design */
-  cursor: pointer; /* Change cursor on hover for better user experience */
-}
-
-.container-login input {
-  height: 45px;
-  width: 420px;
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
-.container-login {
-  margin: 0 auto;
-  width: 40%;
-  gap: 1rem;
-  display: flex;
   flex-direction: column;
-  max-width: 300px;
-  padding: 10px;
-  margin-top: 40px;
   align-items: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+  background-color: pink;
 }
 
-.container-login input::placeholder {
-  color: black;
-}
-
-.title-style h1 {
-  font-family: "inter", sans-serif;
-  font-weight: bolder;
-  color: black;
-  font-size: 30px;
-  align-items: center;
-  text-align: center;
-}
-
-.btnlogin {
-  font-family: "inter", sans-serif;
-  width: 40%;
-  justify-content: center;
-  max-width: 129px;
-  height: 50px;
-  background-color: black;
+.text-under p {
   color: white;
-  border-radius: 10px;
-  font-size: 18px;
+}
+
+.text-under a {
+  text-decoration: none;
+  color: #84C5FB;
+  background-color: grey;
   cursor: pointer;
 }
+
 </style>

@@ -32,9 +32,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 * {
     padding: 0;
     margin: 0;
@@ -44,7 +43,7 @@ export default {
 
 header {
     display: flex;
-    max-height: 46px; /* Adjusted this line */
+    max-height: 46px; 
     background-color: #152238;
     border-bottom: 2px solid #fff; 
     align-items: center;
@@ -56,7 +55,7 @@ header {
   text-decoration: none;
   font-size: 2rem;
   font-weight: bolder;
-  margin-left: -120px; /* Decreased from 10px to 0px */
+  margin-left: -70px; 
   font-size: 1.5rem;
   padding: 10px;
 }
@@ -71,8 +70,7 @@ header {
     width: 30%;
     display: flex;
     align-items: center;
-    border-right: 2px solid black;
-    padding-left: 120px; /* Decreased from 10px to 5px */
+    padding-left: 120px; 
 }
 
 .h-search {
@@ -85,6 +83,7 @@ header {
     border-radius: 7px;
     font-size: 14px;
     padding: 5px;
+    margin-right: 20px; /* Add this line */
 }
 
 .h-search input {
@@ -111,6 +110,7 @@ header {
     gap: 2rem;
     font-size: 16px;
     margin-top: 10px;
+    margin-right: 80px;
 }
 
 .h-right a {
@@ -141,10 +141,10 @@ header {
   justify-content: flex-start;
   gap: 4rem;
   padding-top: 10px;
-  border-right: 2px solid #fff; 
-  margin-left: -150px; /* Add this line */
-  margin-right: 20px; /* Add this line */
+  margin-left: -200px; 
+  margin-right: 20px; 
 }
+
 .head-links a {
     text-decoration: none;
     color: #fff;
@@ -158,5 +158,6 @@ header {
     background-color: #fff;
     color: #333;
 }
+
 </style>
 

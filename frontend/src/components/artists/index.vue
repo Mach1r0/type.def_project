@@ -1,23 +1,23 @@
 <template>
   <AppNavBar></AppNavBar>
     <section>
-      <div class="container-album" v-for="(artist, index) in artists" :key="index">
-        <div class="img-artista">
+      <h3 class="title">All Artist</h3>
+      <div class="container-content" v-for="(artist, index) in artists" :key="index">
+        <div class="container-img">
           <img :src="artist.image" :alt="artist.name">
         </div>
-        <div class="descricao">
+        <div class="container-description">
           <div class="texto">
             <router-link :to="`/artists/${artist.slug}`" class="artist-name">
               <h3>{{ artist.name }}</h3>
             </router-link>
             <p>{{ artist.genders }}</p>
           </div>
-          <button class="btn-albuns">Show albuns</button>
+          <button class="btn-albuns">Show albums</button>
         </div>
       </div>
     </section>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -43,7 +43,15 @@ export default {
   }
 };
 </script>
-<style>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
 
 section {
   width: 100%;
@@ -51,76 +59,71 @@ section {
   background-color: #0b1528;
   display: flex;
   flex-direction: column; 
-  gap: 0;
-  align-items: center;
 }
 
-.container-album {
-  border: 1px solid #ddd;
-  padding: 10px;
-  background-color: #152238;
-  display: flex;
-  margin-left: 90px;
-  border-radius: 20px;
-  max-width: 700px;
-  max-height: 300px ;
-  margin-top: 20px;
-  width: 90%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.title {
+    margin-top: 50px;
+    margin-left: 0;
+    color: white;
+    gap: 1rem;
+    display: flex;
+    margin-left: 70px;
 }
 
-.img-artista {
-  width: 150px;
-  height: 150px;
-  flex-shrink: 0;
+.title {
+    font-size: 30px;
 }
 
-.img-artista img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  object-fit: cover;
+.container-content {
+    margin-top: 30px;
+    background-color: #152238;
+    width: 60%;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    margin-left: 70px;
 }
 
-.descricao {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start; 
+.container-img {
+    height: 150px;
+    width: 150px;
+    flex-shrink: 0;
 }
 
-.texto {
-  font-size: 18px;
-  margin-left: -70px; 
+.container-img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-.texto h3 {
-  margin-bottom: 10px;
+.container-description p{
+    color: white
 }
 
-.artist-name{
-  text-decoration: none;
-  display: flex;
-  color: #84C5FB;
+.container-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 60%;
+    margin-left: 20px;
 }
 
-button {
-  font-size: 16px;
-  margin-left: -70px;
-  border: none;
-  max-width: 600px;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-  align-self: flex-start; 
+.artist-name {
+    color: #84C5FB;
+    width: 30%;
+    text-decoration: none;
+    font-size: 23px;
+    cursor: pointer;
 }
-@media (max-width: 600px) {
-  button {
-    padding: 5px 10px;
-    font-size: 12px;
-    max-width: 300px;
-  }
+
+.btn-albuns {
+    width: 90%;
+    height: 40px;
+    background-color: #283A58;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
 }
 
 </style>
