@@ -92,7 +92,9 @@ section {
   width: 80%; 
   color: white;
   border-radius: 10px;
+  align-items: center;
 }
+
 .container-all h1 {
   margin-bottom: 1.5rem;
 }

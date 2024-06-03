@@ -133,6 +133,7 @@ header {
 .login-css:hover, .signup-css:hover {
     color: #333;
     background-color: #fff;
+
 }
 
 .head-links {
@@ -143,6 +144,7 @@ header {
   padding-top: 10px;
   margin-left: -200px; 
   margin-right: 20px; 
+  transition: color 1s ease; 
 }
 
 .head-links a {
@@ -152,6 +154,7 @@ header {
     font-size: 16px;
     border-radius: 12px 12px 0 0;
     padding: 7px;
+    transition: background-color 1s ease, color 1s ease; 
 }
 
 .head-links a:hover  {

@@ -99,7 +99,8 @@ section {
 .container-all {
   display: flex;
   flex-direction: column;
-  width: 50%; /* Aumentar o tamanho geral */
+  align-items: center;
+  width: 50%;
   color: white;
   border-radius: 10px;
 }
