@@ -8,6 +8,7 @@ import AppArtist from '../components/artists/index.vue'
 import AppGender from '../components/gender/index.vue'
 import AlbumPage from '../components/albums/slug.vue' // Import your AlbumPage component
 import SlugGenderApp from '../components/gender/slug.vue'
+import ArtistSlugApp from '@/components/artists/slug.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {path: '/', component: HomePage},
@@ -15,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   {path: '/sign-up', component: SignUp},
   {path: '/albums', component: AppAlbums},
   {path: '/albums/:slug', component: AlbumPage}, 
+  {path: '/artists/:slug', component: ArtistSlugApp},
   {path: '/gender', component: AppGender},
   {path: '/gender/:slug', component: SlugGenderApp},
   {path: '/artist', component: AppArtist},
