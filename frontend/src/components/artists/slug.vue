@@ -12,8 +12,8 @@
         </div>
         <div class="bio-container">
           <img :src="artist.image" :alt="artist.name" class="artist-image">
-          <h1>{{ artist.name }}</h1>
-          <p>{{ artist.location }}</p>
+          <h1 class="artist-name">{{ artist.name }}</h1>
+          <p class="artist-location">{{ artist.location }}</p>
         </div>
       </div>
     </div>
@@ -68,17 +68,20 @@ export default {
 * {
     margin: 0;
     padding: 0;
-}
-
+  }
+  
 .container-content {
     display: flex;
-    background-color: grey;
+    background-color: #272a37;
+    height: 90%;
+    margin-top: 40px;
     padding: 20px;
-    align-items: flex-start; /* Adicione esta linha */
+    align-items: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Cor de borda branca com 50% de transparência */
 }
 
 .album-image {
-    margin-top: 0;
+    margin-top: 20px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -88,49 +91,43 @@ export default {
 .container-image {
     width: 168px;
     height: 168px;
-    background-color: grey;
-    margin: 0;
+    margin: 10px; 
 }
 
 .albums-name {
     display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
-    color: black;
+    color: white;
     margin-top: 10px;
 }
 
 .artist-image {
+    margin-top: 20px; 
     width: 168px;
     height: 168px;
     object-fit: cover;
     flex-shrink: 0;
-    margin-top: 10px;
-    }
+}
 
 .container-album {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background-color: purple;
     flex: 1;
-    grid-gap: 0px; /* Reduzir o grid-gap */
-    padding: 0px; /* Reduzir o padding */
+    grid-gap: 40px; 
 }
-
-.container-all {
+  
+  .container-all {
     display: flex;
     justify-content: center;
     width: 100%;
     height:100vh;
     background-color: #152238;
-}
-
+  }
 .bio-container {
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
-    background-color: antiquewhite;
     justify-content: flex-start;
 }
 
@@ -141,5 +138,11 @@ export default {
     flex-shrink: 0;
 }
 
-      
+.artist-name{
+    color: white;
+}
+
+.artist-location{
+    color: white;
+}
 </style>
