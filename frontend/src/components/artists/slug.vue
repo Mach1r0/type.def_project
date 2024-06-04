@@ -1,22 +1,24 @@
 <template>
     <AppNavBar></AppNavBar>
-        <div v-if="artist" class="container-all">
-            <div class="container-album">
-                <div v-for="(album, index) in artist.albums" :key="index" class="container-image">
-                    <img :src="album.image" alt="album image" class="album-image">
-                    <router-link :to="`/albums/${album.slug}`" class="albums-name">
-                        <h1> {{ album.name }} </h1>
-                    </router-link> 
-                </div>
-            </div>
-            <div class="bio-container">
-                <img :src="artist.image" :alt="artist.name" class="artist-image">
-                <h1>{{ artist.name }} </h1>
-                <p>{{ artist.location }} </p>
-            </div>
+    <div v-if="artist" class="container-all">
+      <div class="container-content">
+        <div class="container-album">
+          <div v-for="(album, index) in artist.albums" :key="index" class="container-image">
+            <img :src="album.image" alt="album image" class="album-image">
+            <router-link :to="`/albums/${album.slug}`" class="albums-name">
+              <h1>{{ album.name }}</h1>
+            </router-link>
+          </div>
         </div>
+        <div class="bio-container">
+          <img :src="artist.image" :alt="artist.name" class="artist-image">
+          <h1>{{ artist.name }}</h1>
+          <p>{{ artist.location }}</p>
+        </div>
+      </div>
+    </div>
 </template>
-
+  
 <script>
 import AppNavBar from '@/components/base/navbar.vue'
 import axios from 'axios'
@@ -63,45 +65,68 @@ export default {
 
 <style scoped>
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.container-imagem{
-    flex-shrink: 0;
+.container-content {
+    display: flex;
+    background-color: grey;
+    padding: 20px;
+    align-items: flex-start; /* Adicione esta linha */
 }
 
-.artist-image{
-    width: 168px;
-    height: 168px;
+.album-image {
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     flex-shrink: 0;
 }
 
-.container-album{
-    display: flex;
-    flex-direction: column;
-    background-color: blue;
-    height: 80%;
-    width: 30%;
-    justify-content: center;
-    align-items: center;
+.container-image {
+    width: 168px;
+    height: 168px;
+    background-color: grey;
+    margin: 0;
 }
 
-.container-all{
+.albums-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+}
+
+.artist-image {
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-top: 10px;
+    }
+
+.container-album {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: purple;
+    flex: 1;
+    grid-gap: 0px; /* Reduzir o grid-gap */
+    padding: 0px; /* Reduzir o padding */
+}
+
+.container-all {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100vh;
-    background-color: aquamarine;
-    gap: 4rem;
+    height:100vh;
+    background-color: #152238;
 }
 
-
-.bio-container{
-    width: 10%;
-    height: auto;
+.bio-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,9 +134,12 @@ export default {
     justify-content: flex-start;
 }
 
-.album-image{
+.album-image {
     width: 150px;
     height: 150px;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
+      
 </style>
