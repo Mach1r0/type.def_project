@@ -54,11 +54,12 @@ async created() {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
-    border: none;
-    margin: 0 auto;
+* {
     padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .albumname-style {
@@ -75,7 +76,7 @@ async created() {
     align-items: center;
     text-align: center;
     display: flex;
-  }
+}
   
 .container-albums {
   align-items: center;
@@ -85,7 +86,7 @@ async created() {
   list-style: none;
   padding: 0;
   gap: 5rem;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0;
 }
   
@@ -104,13 +105,22 @@ async created() {
   display: flex;
   align-items: center;
   justify-content: start;
-  width: 100%;
+  background-color: #152238;
 }
-
 
 .container-albums li {
     background-color: transparent;
     border: none
+}
+
+.text-style{
+  color: #84C5FB;
+  font-size: 30px;
+}
+
+.description-style{
+  color: white;
+  font-size: 20px;
 }
 
 </style>

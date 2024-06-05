@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {path: '/gender', component: AppGender},
   {path: '/gender/:slug', component: SlugGenderApp},
   {path: '/artist', component: AppArtist},
-  {path: '/best-of', component: AppBestof}
+  {path: '/best-of', component: AppBestof},
 ]
 
 const router = createRouter({

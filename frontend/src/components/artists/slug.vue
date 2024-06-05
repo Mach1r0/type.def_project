@@ -136,6 +136,7 @@ export default {
     height: 150px;
     object-fit: cover;
     flex-shrink: 0;
+    border-radius: 5px;
 }
 
 .artist-name{
