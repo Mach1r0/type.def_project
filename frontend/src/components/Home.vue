@@ -81,6 +81,7 @@ import { calculateSizeAdjustValues } from 'next/dist/server/font-utils'
 .container-bio{
   display: flex;
   width: 100%;
+  height: 15%;
   flex-direction: column;
   background-color: blueviolet;
 }
@@ -88,6 +89,8 @@ import { calculateSizeAdjustValues } from 'next/dist/server/font-utils'
 .container-header{
   display: flex;
   background-color: grey;
+  width: 100%;
+  height: 70%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -95,6 +98,7 @@ import { calculateSizeAdjustValues } from 'next/dist/server/font-utils'
 
 .container-stats{
   display: flex;
+  height: 30%;
   margin-top: 20px;
   background-color: bisque;
   gap: 1rem;
@@ -113,13 +117,13 @@ import { calculateSizeAdjustValues } from 'next/dist/server/font-utils'
 .container-albums{
   display: flex;
   background-color: white;
-  width: 60%;
+  width: 65%;
 }
 
 .container-info{
   display: flex;
   background-color: brown;
-  width: 40%;
+  width: 35%;
   height: 100%;
 }
 
