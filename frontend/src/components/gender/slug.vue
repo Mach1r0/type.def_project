@@ -10,30 +10,38 @@
       </div>
     </div>
     
-    
     <div class="container-albums">
-      <h3 class="Title-albums">Top-ranked albums</h3>
-      <button @click="prevPage" :disabled="currentPage === 0" id="left-btn">
-        &lt;
-      </button>
-      <div v-for="(album, index) in paginatedAlbums" :key="index" class="album">
-        <div class="album-image">
-          <img :src="album.image" :alt="album.name" />
-        </div>
-        <div class="album-bio">
-            <p> #{{ index+ 1 }} - </p> 
-          <router-link :to="`/albums/${album.slug}`">
-            <h2> {{ album.name }} </h2>
-          </router-link>
-          <router-link :to="`/artists/${artistSlugs[album.artist]}`">
-            <h1> {{ album.artist }} </h1>
-          </router-link>
-        </div>
+      <div class="Title-albums">
+        <h3>Top-ranked albums</h3>
       </div>
-      <button @click="nextPage" :disabled="currentPage >= pageCount - 1" id="right-btn">
-        &gt;
-      </button>
-      <div class="pagination-buttons"></div>
+      <div class="albums-and-pagination">
+        <button v-if="currentPage > 0" @click="prevPage" id="left-btn">
+          &lt;
+        </button>
+        <div class="albums">
+          <div v-for="(album, index) in paginatedAlbums" :key="index" class="album">
+            <div class="album-image">
+              <img :src="album.image" :alt="album.name" />
+            </div>
+            <div class="album-bio">
+              <div class="container-title-album">
+                <span class="album-index">#{{ currentPage * albumsPerPage + index + 1 }} - </span>
+                <router-link :to="`/albums/${album.slug}`" class="album-link">
+                  <h2>{{ album.name }}</h2>
+                </router-link>
+              </div>
+              <div class="artist-name-style">
+                <router-link :to="`/artists/${artistSlugs[album.artist]}`" class="artist-link">
+                  <h1>{{ album.artist }}</h1>
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button v-if="currentPage < pageCount - 1" @click="nextPage" id="right-btn">
+          &gt;
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +49,7 @@
 <script>
 import AppNavBar from "@/components/base/navbar.vue";
 import axios from "axios";
+
 export default {
   name: "SlugGenderApp",
   components: {
@@ -52,7 +61,7 @@ export default {
       albums: [],
       artistSlugs: {},
       currentPage: 0,
-      albumsPerPage: 4,
+      albumsPerPage: 4, 
     };
   },
   computed: {
@@ -107,6 +116,17 @@ export default {
   padding: 0;
 }
 
+.artist-name-style {
+  font-size: 10px; 
+  color: #84c5fb;
+  text-decoration: none;
+}
+
+.album-link h2{
+  color: #84c5fb;
+  font-weight: 100;
+}
+
 .container-all {
   display: flex;
   flex-direction: column;
@@ -114,80 +134,118 @@ export default {
   padding-top: 20px;
   width: 100%;
   height: 100vh;
-  background-color: aqua;
+  background-color: #0b1528;
 }
 
 .container-header {
   display: flex;
   flex-direction: column;
   width: 70%;
-  background-color: brown;
-  height: 15%;
+  padding: 20px;
+}
+
+.container-titulo {
+  color: #174075;
+}
+
+.container-description {
+  margin-top: 15px;
+  line-height: 1.5;
+  font-size: 1.2em;
+  font-size: 20px;
+  display: flex;
+  color: white;
+  margin-left: 0;
+  font-weight: 300;
 }
 
 .container-albums {
-  display: flex;
-  margin-top: 10px;
-  flex-wrap: wrap;
   width: 70%;
-  background-color: grey;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
+
+
+.Title-albums {
+  color: white;
+  font-size: 25px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.albums-and-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.albums {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  overflow: hidden;
 }
 
 .album {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 20%;
-  margin: 10px;
+  width: 30%;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px; 
 }
 
 .album-image {
-  display: flex;
-  width: 15em;
-  height: 15em;
-  gap: 1rem;
-  display: inline-block;
-  position: relative;
-  border: none;
-  background-color: cornflowerblue;
+  width: 15em; /* Ajusta a largura da imagem para 100% do contêiner pai */
+  height: 15em; /* Define a altura da imagem como 15em */
+  overflow: hidden; /* Esconde qualquer parte da imagem que ultrapasse o contêiner */
 }
 
 .album-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; /* Garante que a largura da imagem se ajuste ao contêiner */
+  height: 100%; /* Garante que a altura da imagem se ajuste ao contêiner */
+  object-fit: cover; /* Corta a imagem para cobrir completamente o contêiner */
 }
 
+
 .album-bio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
   margin-top: 10px;
 }
 
-.pagination-buttons {
+.container-title-album {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  align-items: center;
 }
 
-.pagination-buttons button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+.album-index {
+  color: #959caf;
+  font-weight: bolder;
+  font-size: 22px;
+  margin-right: 5px;
 }
 
-.container-titulo {
-  color: #174075;
-  background-color: white;
+.album-link, .artist-link {
+  color: #84c5fb;
+  text-decoration: none; 
+  color: inherit;
+  font-size: 15px;
 }
 
-.container-description{
-  margin-top: 15px;
-  line-height: 1.5;
-  font-size: 1.2em;
-  background-color: blueviolet;
+#left-btn, #right-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  background-color: #174075;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
+#left-btn {
+  margin-right: 10px;
+}
+
+#right-btn {
+  margin-left: 10px;
+}
 </style>
